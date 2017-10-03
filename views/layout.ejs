@@ -3,20 +3,40 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Authentication</title>
+    <title>Tapas</title>
 
-    <!-- Latest compiled and minified CSS & JS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.css">
   </head>
   <body>
+
+  <nav>
+    <div class="nav-wrapper">
+      <a href="#" class="brand-logo">Tapas - Practice Journal</a>
+      <ul class="right" >
+          <a class='btn-floating dropdown-button btn-large btn' href='#' data-activates='dropdownNav' data-constrainwidth="false" data-beloworigin="true">
+            <i class="material-icons">menu</i>
+          </a>
+          <ul id='dropdownNav' class='dropdown-content' z-index="0">
+
+            <li><a href="/profile" class="right">Profile</a></li>
+            <li><a href="/journal" class="right">Journal</a></li>
+            <li><a href="/progression" class="right">Progressions</a></li>
+          </ul>
+      </ul>
+
+    </div>
+  </nav>
+
     <div class="container">
-      <h1>Authentication</h1>
+      <!-- <h2>Tapas - Practice Journal</h2> -->
       <%- body %>
-      <%- JSON.stringify(currentUser) %>
+   
       <% include partials/alerts %>
+        
     </div>
 
     <script src="//code.jquery.com/jquery.js"></script>
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js" integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/js/materialize.min.js"></script></script>
   </body>
 </html>

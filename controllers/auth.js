@@ -42,7 +42,7 @@ router.post('/login', passport.authenticate('local', {
   successRedirect: '/',
   failureRedirect: '/auth/login',
   failureFlash: 'Invalid username and/or password',
-  successFlash: 'You have logged in'
+  successFlash: 'You have logged in',
 }));
 
 router.get('/logout', function(req, res) {

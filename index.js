@@ -45,15 +45,20 @@ var passport = require('./config/ppConfig');
 app.use(passport.initialize());
 app.use(passport.session());
 
+
+// include , {currentUser: req.user} and isLoggedIn 
 app.get('/', function(req, res) {
   res.render('index');
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile');
+  res.render('profile/showProfile');
 });
 
 app.use('/auth', require('./controllers/auth'));
+app.use('/profile', require('./controllers/profile'));
+app.use('/journal', require('./controllers/journal'));
+app.use('/progression', require('./controllers/progression'));
 
 var server = app.listen(process.env.PORT || 3000);
 
