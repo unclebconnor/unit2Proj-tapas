@@ -13,6 +13,7 @@ app.set('view engine', 'ejs');
 app.use(require('morgan')('dev'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(ejsLayouts);
+app.use(express.static(__dirname + '/public'));
 
 /*
  * setup the session with the following:
@@ -47,8 +48,8 @@ app.use(passport.session());
 
 
 // include , {currentUser: req.user} and isLoggedIn 
-app.get('/', function(req, res) {
-  res.render('index');
+app.get('/', isLoggedIn, function(req, res) {
+  res.render('index', {currentUser: req.user});
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {

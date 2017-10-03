@@ -1,1 +1,46 @@
-<h2>Edit Journal</h2>
+<!-- breadcrumbs -->
+<div class="navbar-fixed">
+	<nav class="#f5f5f5 grey lighten-1">
+	  	<div class="nav-wrapper">
+	      	<a href="/journal" class="breadcrumb">
+	      		My Journals
+	  		</a>
+	      	<a href="/journal/editJournal" class="breadcrumb">
+	      		Edit Entry
+	      	</a>
+	  	</div>
+	</nav>
+</div>
+
+
+<!-- Form -->
+<div class="row center-align z-depth-1">
+    <form class="col s12">
+    	<div class="row">
+    		<h4>Edit Entry</h4>
+    	</div>
+      	<div class="row">
+      	  	<div class="input-field col s6">
+      	  	  	<input placeholder="Enter Title" id="journalTitle" type="text" class="validate">
+      	  	  	<label for="journalTitle">Journal Entry Title</label>
+      	  	</div>
+      	  	<div class="input-field col s3">
+   		 		<select>
+   		 		  	<option value="open" selected>Open</option>
+   		 		  	<option value="closed">Closed</option>
+   		 		</select>
+    			<label>Journal Entry Status</label>
+      	  	</div>        
+      	  	<div class="input-field col s3">
+      	  	  	<input id="journalDate" type="text" class="datepicker">
+      	  	  	<label for="journalDate">Date</label>
+      	  	</div>
+      	</div>
+      	<div class="row">
+      	  	<div class="input-field col s12">
+      	  	  	<textarea placeholder="Enter Notes" id="journalNotes" class="materialize-textarea"></textarea>
+      	  	  	<label for="journalNotes">Journal Entry Notes</label>
+      	  	</div>
+      	</div>
+    </form>
+</div>
