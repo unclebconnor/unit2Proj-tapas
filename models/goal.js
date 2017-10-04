@@ -13,7 +13,8 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.goal.hasMany(models.sessionItem);
+        models.goal.belongsTo(models.user);
       }
     }
   });

@@ -8,6 +8,9 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      userId: {
+        type: Sequelize.INTEGER
+      },
       name: {
         type: Sequelize.STRING
       },
@@ -23,13 +26,13 @@ module.exports = {
       level: {
         type: Sequelize.INTEGER
       },
+      keySignature: {
+        type: Sequelize.INTEGER
+      },
       keySignatureString: {
         type: Sequelize.STRING
       },
-      keySignatureId: {
-        type: Sequelize.INTEGER
-      },
-      timeSignatureId: {
+      timesignature: {
         type: Sequelize.INTEGER
       },
       timeSignatureString: {

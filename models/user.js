@@ -42,7 +42,11 @@ module.exports = (sequelize, DataTypes) => {
     },
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.user.hasMany(models.sessionLog);
+        models.user.hasMany(models.profile);
+        models.user.hasMany(models.goal);
+        models.user.hasMany(models.chordProgression);
+        models.user.hasMany(models.activityType);
       }
     },
     instanceMethods: {

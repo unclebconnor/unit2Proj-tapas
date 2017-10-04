@@ -14,7 +14,12 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.sessionItem.belongsTo(models.sessionLog);
+        models.sessionItem.belongsTo(models.goal);
+        models.sessionItem.belongsToMany(models.chordProgression, 
+          {through: "sessionItemsChordProgressions"});
+        models.sessionItem.belongsToMany(models.activityType, 
+          {through: "sessionItemsActivityTypes"});
       }
     }
   });

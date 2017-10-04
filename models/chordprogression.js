@@ -1,19 +1,23 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var chordProgression = sequelize.define('chordProgression', {
+    userId: DataTypes.INTEGER,
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
     link: DataTypes.STRING,
     measureCount: DataTypes.INTEGER,
     level: DataTypes.INTEGER,
+    keySignature: DataTypes.INTEGER,
     keySignatureString: DataTypes.STRING,
-    keySignatureId: DataTypes.INTEGER,
-    timeSignatureId: DataTypes.INTEGER,
+    timesignature: DataTypes.INTEGER,
     timeSignatureString: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.chordProgression.belongsTo(models.user);
+        models.chordProgression.hasMany(models.chordProgSegment);
+        models.chordProgression.belongsToMany(models.sessionItem, 
+          {through: "sessionItemsChordProgressions"});
       }
     }
   });

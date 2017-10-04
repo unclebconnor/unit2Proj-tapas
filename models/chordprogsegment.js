@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {
     classMethods: {
       associate: function(models) {
-        // associations can be defined here
+        models.chordProgSegment.belongsTo(models.chordProgression);
+        models.chordProgSegment.belongsTo(models.harmonicElement);
+        models.chordProgSegment.belongsTo(models.melodicElement);
       }
     }
   });
