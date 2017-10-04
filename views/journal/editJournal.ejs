@@ -1,5 +1,5 @@
 <!-- breadcrumbs -->
-<div class="row">
+<div class="row bcbreadcrumb">
 	<div class="col s1"></div>
 	<div class="col s10">
 	   	<h5><a href="/journal" class="valign-wrapper">
@@ -14,31 +14,34 @@
 <!-- Form -->
 <div class="row">
 	<div class="col s1"></div>
-    <form class="col s10  z-depth-1">
+    <form class="col s10  z-depth-1" action="/journal/editJournal" method="POST">
+    	<input id="userId" name="userId" type="hidden" value="<%=currentUser.dataValues.id%>">
     	<header class="row valign-wrapper">
     		<h5 class="col s10">Edit Journal Entry</h5>
-    		<a class="col s2 waves-effect waves-light btn" href="/journal">Save</a>
+    		<button type="submit" class="btn">Save</button>
     	</header>
       	<div class="row">
       	  	<div class="input-field col s6">
-      	  	  	<input placeholder="Add title here" id="journalTitle" type="text" class="validate">
-      	  	  	<label for="journalTitle">Journal Entry Title</label>
+      	  	  	<input name="journalEntryTitle" placeholder="Add title here" 
+      	  	  	id="journalEntryTitle" type="text" class="validate" >
+      	  	  	<label for="journalEntryTitle">Journal Entry Title</label>
       	  	</div>
       	  	<div class="input-field col s3">
-   		 		<select>
+   		 		<select name="journalEntryStatus">
    		 		  	<option value="open" selected>Open</option>
    		 		  	<option value="closed">Closed</option>
    		 		</select>
     			<label>Journal Entry Status</label>
       	  	</div>        
       	  	<div class="input-field col s3">
-      	  	  	<input id="journalDate" type="text" class="datepicker">
-      	  	  	<label for="journalDate">Date</label>
+      	  	  	<input name="journalEntryDate" id="journalEntryDate" type="text" class="datepicker">
+      	  	  	<label for="journalEntryDate">Date</label>
       	  	</div>
       	</div>
       	<div class="row">
       	  	<div class="input-field col s12">
-      	  	  	<textarea placeholder="Add notes here" id="journalNotes" class="materialize-textarea"></textarea>
+      	  	  	<textarea name="journalEntryNotes" placeholder="Add notes here" 
+      	  	  	id="journalNotes" class="materialize-textarea"></textarea>
       	  	  	<label for="journalNotes">Journal Entry Notes</label>
       	  	</div>
       	</div>

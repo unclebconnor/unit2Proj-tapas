@@ -32,6 +32,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
+
 app.use(flash());
 
 app.use(function(req, res, next) {
@@ -53,7 +54,7 @@ app.get('/', function(req, res) {
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {
-  res.render('profile/showProfile');
+  res.render('profile/showProfile', {currentUser: req.user});
 });
 
 app.use('/auth', require('./controllers/auth'));
