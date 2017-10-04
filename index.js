@@ -48,8 +48,8 @@ app.use(passport.session());
 
 
 // include , {currentUser: req.user} and isLoggedIn 
-app.get('/', isLoggedIn, function(req, res) {
-  res.render('index', {currentUser: req.user});
+app.get('/', function(req, res) {
+  res.render('index');
 });
 
 app.get('/profile', isLoggedIn, function(req, res) {

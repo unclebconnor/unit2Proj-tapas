@@ -8,4 +8,9 @@ router.get('/', function(req, res) {
 });
 
 
+router.get('/editProgression', function(req, res) {
+  res.render('progression/editProgression');
+});
+
+
 module.exports = router;

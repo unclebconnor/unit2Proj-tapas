@@ -1,1 +1,150 @@
-<h2>EDIT PROGRESSION LISTS YA</h2>
+<!-- breadcrumbs -->
+<div class="row">
+	<div class="col s1"></div>
+	<div class="col s10">
+	   	<h5><a href="/progression" class="valign-wrapper">
+	   		<i class="material-icons">arrow_back</i>
+	   		My Progressions
+		</a></h5>
+	</div>
+	<div class="col s1"></div>
+</div>
+
+
+<!-- Form -->
+<div class="row">
+	<div class="col s1"></div>
+	<div class="col s6 z-depth-1">
+		<form class="col s12">
+    	<header class="row valign-wrapper">
+    		<h5 class="col s10">Edit Chord Progression</h5>
+    		<a class="col s2 waves-effect waves-light btn" href="/progression">Save</a>
+    	</header>
+      	<div class="row">
+      	  	<div class="input-field col s12">
+      	  	  	<input placeholder="Add name here" id="progressionName" type="text" class="validate">
+      	  	  	<label for="progressionName">Progression Name</label>
+      	  	</div>
+      	<div class="row">
+      		<div class="input-field col s4">
+   		 		<select>
+   		 		  	<option value="4/4" selected>4/4</option>
+   		 		  	<option value="3/4">3/4</option>
+   		 		  	<option value="5/4">5/4</option>
+   		 		  	<option value="2/4">2/4</option>
+   		 		  	<option value="6/8">6/8</option>
+   		 		  	<option value="7/8">7/8</option>
+   		 		  	<option value="9/8">9/8</option>
+   		 		  	<option value="11/12">11/12</option>
+   		 		  	<option value="13/12">13/12</option>
+   		 		</select>
+    			<label>Time Signature</label>
+      	  	</div>        
+       	  	<div class="input-field col s4">
+   		 		<select>
+   		 		  	<option value="" disabled selected></option>
+   		 		  	<option value="C Maj">C Maj</option>
+   		 		  	<option value="1 Sharp">1 Sharp</option>
+   		 		  	<option value="2 Sharps">2 Sharps</option>
+   		 		  	<option value="3 Sharps">3 Sharps</option>
+   		 		  	<option value="4 Sharps">4 Sharps</option>
+   		 		  	<option value="5 Sharps">5 Sharps</option>
+   		 		</select>
+    			<label>Key Signature</label>
+      	  	</div>
+      	  	<div class="input-field col s4">
+   		 		<select>
+   		 		  	<option value="" disabled selected></option>
+   		 		  	<option value="1">1</option>
+   		 		  	<option value="2">2</option>
+   		 		  	<option value="3">3</option>
+   		 		  	<option value="4">4</option>
+   		 		  	<option value="5">5</option>
+   		 		  	<option value="6">6</option>
+   		 		</select>
+    			<label>Total Measures</label>
+      	  	</div>
+      	</div>
+      	  	 
+      	</div>
+      	<div class="row">
+      	  	<div class="input-field col s12">
+      	  	  	<textarea placeholder="Add Description Here" id="progDesc" class="materialize-textarea"></textarea>
+      	  	  	<label for="progDesc">Progression Description</label>
+      	  	</div>
+      	</div>
+    </form>
+	</div>
+	<div class="col s1"></div>
+	<div class="col s3 z-depth-1">
+		<div class="row">
+			<div class="col s12">
+				<header class="row">
+    				<button data-target="addProgressionSegment" class="btn modal-trigger">Add Segment
+    				<i class="material-icons right">add</i>
+    				</button>
+    			</header>
+				<ul class="collection">
+    			  	<li class="collection-item">Chord Key Beats
+    			  		<a href="#">Edit</a> <a href="#">Delete</a></li>
+    			  	<li class="collection-item">Chord Key Beats</li>
+    			  	<li class="collection-item">Chord Key Beats</li>
+    			  	<li class="collection-item">Chord Key Beats</li>
+    			</ul>
+			</div>
+		</div>
+	</div>
+	<div class="col s1"></div>
+</div>
+
+
+<!-- Modal - Add Journal Item -->
+<div id="addProgressionSegment" class="modal modal-fixed-footer">
+  	<div class="row"></div>
+		<div class="row">
+		    <form class="col s12">
+		    	<header class="row">
+		    		<h5>Chord Progression Segment</h5>
+		    		<button class="modal-action modal-close btn-flat right">
+		    			<a href="#CREATEPROGSEGROUTE"> Add Segment</a>
+		    		</button>
+		    	</header>
+		      	<div class="row">
+		      	  	<div class="col s4">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Harmony Element</option>
+   		 				  	<option value="C Maj">C Maj</option>
+   		 				  	<option value="D min">D min</option>
+   		 				  	<option value="F Maj">F Maj</option>
+   		 				  	<option value="G7">G7</option>
+   		 				</select>
+    					<label>Harmony Element</label>
+		      	  	</div>
+		      	  	<div class="col s4">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Melody Element</option>
+   		 				  	<option value="C Maj Scale">C Maj Scale</option>
+   		 				  	<option value="D Minor Arpeggio">D Minor Arpeggio</option>
+   		 				  	<option value="F Maj7 Arpeggio">F Maj7 Arpeggio</option>
+   		 				  	<option value="G7 Arpeggio">G7 Arpeggio</option>
+   		 				</select>
+    					<label>Melody Element</label>
+		      	  	</div>
+		      	  	<div class="col s4">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Number of Beats</option>
+   		 				  	<option value="4">4</option>
+   		 				  	<option value="8">8</option>
+   		 				  	<option value="2">2</option>
+   		 				  	<option value="1">1</option>
+   		 				</select>
+    					<label>Number of Beats</label>
+		      	  	</div>
+		      	</div>
+		    </form>
+		</div>
+</div>
+<div class="divider"></div>
+<div>
+	<h5>Chord Progression Preview</h5>
+</div>

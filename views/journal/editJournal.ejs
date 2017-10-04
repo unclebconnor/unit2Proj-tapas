@@ -1,27 +1,27 @@
 <!-- breadcrumbs -->
-<div class="navbar-fixed">
-	<nav class="#f5f5f5 grey lighten-1">
-	  	<div class="nav-wrapper">
-	      	<a href="/journal" class="breadcrumb">
-	      		My Journals
-	  		</a>
-	      	<a href="/journal/editJournal" class="breadcrumb">
-	      		Edit Entry
-	      	</a>
-	  	</div>
-	</nav>
+<div class="row">
+	<div class="col s1"></div>
+	<div class="col s10">
+	   	<h5><a href="/journal" class="valign-wrapper">
+	   		<i class="material-icons">arrow_back</i>
+	   		My Journals
+		</a></h5>
+	</div>
+	<div class="col s1"></div>
 </div>
 
 
 <!-- Form -->
-<div class="row center-align z-depth-1">
-    <form class="col s12">
-    	<div class="row">
-    		<h4>Edit Entry</h4>
-    	</div>
+<div class="row">
+	<div class="col s1"></div>
+    <form class="col s10  z-depth-1">
+    	<header class="row valign-wrapper">
+    		<h5 class="col s10">Edit Journal Entry</h5>
+    		<a class="col s2 waves-effect waves-light btn" href="/journal">Save</a>
+    	</header>
       	<div class="row">
       	  	<div class="input-field col s6">
-      	  	  	<input placeholder="Enter Title" id="journalTitle" type="text" class="validate">
+      	  	  	<input placeholder="Add title here" id="journalTitle" type="text" class="validate">
       	  	  	<label for="journalTitle">Journal Entry Title</label>
       	  	</div>
       	  	<div class="input-field col s3">
@@ -38,9 +38,105 @@
       	</div>
       	<div class="row">
       	  	<div class="input-field col s12">
-      	  	  	<textarea placeholder="Enter Notes" id="journalNotes" class="materialize-textarea"></textarea>
+      	  	  	<textarea placeholder="Add notes here" id="journalNotes" class="materialize-textarea"></textarea>
       	  	  	<label for="journalNotes">Journal Entry Notes</label>
       	  	</div>
       	</div>
+      	<div class="row">
+    		<button data-target="addJournalItem" class="btn modal-trigger">Add Item
+    			<i class="material-icons right">add</i>
+    		</button>
+    	</div>
     </form>
+    <div class="col s1"></div>
+</div>
+
+<!-- load journal items -->
+<div class="row">
+	<div class="col s1"></div>
+		<div class="col s10">
+			<ul class="collapsible popout" data-collapsible="expandable">
+			  	<li>
+			  	  	<div class="collapsible-header">
+			  	  		Item 1
+			  	  	</div>
+			  	  	<div class="collapsible-body">
+			  	  		<span>Lorem ipsum dolor sit amet.</span>
+			  	  	</div>
+			  	</li>
+			</ul>
+		</div>
+	<div class="col s1"></div>
+</div>
+
+<!-- Modal - Add Journal Item -->
+<div id="addJournalItem" class="modal modal-fixed-footer">
+  	<div class="row"></div>
+		<div class="row">
+		    <form class="col s12">
+		    	<header class="row">
+		    		<h5>Item Description</h5>
+		    		<button class="modal-action modal-close btn-flat right">
+		    			<a href="#CREATEJOURNALITEMROUTE"> Add Item</a>
+		    		</button>
+		    	</header>
+		      	<div class="row">
+		      	  	<div class="input-field col s8">
+		      	  	  	<input placeholder="Add title here" id="jiTitle" type="text" class="validate">
+		      	  	  	<label for="jiTitle">Title</label>
+		      	  	</div>
+		      	  	<div class="input-field col s4">
+		      	  	  	<input placeholder="Add link here" id="jiLink" type="text" class="validate">
+		      	  	  	<label for="jiLink">Related Link</label>
+		      	  	</div>
+		      	</div>
+		      	<div class="row">
+		      	  	<div class="input-field col s12">
+		      	  	  	<textarea placeholder="Add notes here" id="jiNotes" class="materialize-textarea"></textarea>
+		      	  	  	<label for="jiNotes">Notes</label>
+		      	  	</div>
+		      	</div>
+		      	<div class="divider"></div>
+		      	<header class="row">
+		    		<h5>Details</h5>
+		    	</header>
+		      	<div class="row">
+		      	  	<div class="col s6">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Select Activity</option>
+   		 				  	<option value="Scales">Scales</option>
+   		 				  	<option value="Warm Up">Warm Up</option>
+   		 				  	<option value="Learn New blah">Learn New blah</option>
+   		 				  	<option value="Add from JS">Learn New blah</option>
+   		 				</select>
+    					<label>Activity Type</label>
+		      	  	</div>
+		      	  	<div class="col s3">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Select Time</option>
+   		 				  	<option value="05">5 min</option>
+   		 				  	<option value="10">Load in JS</option>
+   		 				</select>
+    					<label>Time</label>
+		      	  	</div>
+		      	</div>
+		      	<div class="row">
+		      	  	<div class="col s6">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Select Activity</option>
+   		 				  	<option value="Load from User">Load from User</option>
+   		 				</select>
+    					<label>Relate to Goal</label>
+		      	  	</div>
+		      	  	<div class="col s6">
+		   		 		<select>
+		   		 			<option value="" disabled selected>Select Time</option>
+   		 				  	<option value="Load from User">Load in JS</option>
+   		 				</select>
+    					<label>Your Chord Progressions</label>
+		      	  	</div>
+		      	</div>
+		    </form>
+		</div>
+
 </div>
