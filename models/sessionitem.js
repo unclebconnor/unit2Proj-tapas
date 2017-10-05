@@ -1,7 +1,7 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var sessionItem = sequelize.define('sessionItem', {
-    sessionId: DataTypes.INTEGER,
+    sessionLogId: DataTypes.INTEGER,
     goalId: DataTypes.INTEGER,
     activityTypeId: DataTypes.INTEGER,
     activityType: DataTypes.STRING,

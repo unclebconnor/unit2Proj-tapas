@@ -76,26 +76,28 @@
 <div id="addJournalItem" class="modal modal-fixed-footer">
   	<div class="row"></div>
 		<div class="row">
-		    <form class="col s12">
+		    <form class="col s12" action="./addJournalItem" method="POST">
 		    	<header class="row">
 		    		<h5>Item Description</h5>
-		    		<button class="modal-action modal-close btn-flat right">
-		    			<a href="#CREATEJOURNALITEMROUTE"> Add Item</a>
-		    		</button>
+		    		<button type="submit" class="modal-action modal-close btn-flat right" 
+		    		>Add Item</button>
 		    	</header>
 		      	<div class="row">
 		      	  	<div class="input-field col s8">
-		      	  	  	<input placeholder="Add title here" id="jiTitle" type="text" class="validate">
+		      	  	  	<input name="jiTitle" placeholder="Add title here" 
+		      	  	  	id="jiTitle" type="text" class="validate">
 		      	  	  	<label for="jiTitle">Title</label>
 		      	  	</div>
 		      	  	<div class="input-field col s4">
-		      	  	  	<input placeholder="Add link here" id="jiLink" type="text" class="validate">
+		      	  	  	<input name="jiLink" placeholder="Add link here" 
+		      	  	  	id="jiLink" type="text" class="validate">
 		      	  	  	<label for="jiLink">Related Link</label>
 		      	  	</div>
 		      	</div>
 		      	<div class="row">
 		      	  	<div class="input-field col s12">
-		      	  	  	<textarea placeholder="Add notes here" id="jiNotes" class="materialize-textarea"></textarea>
+		      	  	  	<textarea name="jiNotes" placeholder="Add notes here" 
+		      	  	  	id="jiNotes" class="materialize-textarea"></textarea>
 		      	  	  	<label for="jiNotes">Notes</label>
 		      	  	</div>
 		      	</div>
@@ -105,7 +107,7 @@
 		    	</header>
 		      	<div class="row">
 		      	  	<div class="col s6">
-		   		 		<select>
+		   		 		<select name="activityType">
 		   		 			<option value="" disabled selected>Select Activity</option>
    		 				  	<option value="Scales">Scales</option>
    		 				  	<option value="Warm Up">Warm Up</option>
@@ -115,7 +117,7 @@
     					<label>Activity Type</label>
 		      	  	</div>
 		      	  	<div class="col s3">
-		   		 		<select>
+		   		 		<select name="time">
 		   		 			<option value="" disabled selected>Select Time</option>
    		 				  	<option value="05">5 min</option>
    		 				  	<option value="10">Load in JS</option>
@@ -125,16 +127,16 @@
 		      	</div>
 		      	<div class="row">
 		      	  	<div class="col s6">
-		   		 		<select>
+		   		 		<select name="goalId">
 		   		 			<option value="" disabled selected>Select Activity</option>
-   		 				  	<option value="Load from User">Load from User</option>
+   		 				  	<option value="goalId">Goal Text</option>
    		 				</select>
     					<label>Relate to Goal</label>
 		      	  	</div>
 		      	  	<div class="col s6">
-		   		 		<select>
+		   		 		<select name="chordProgId">
 		   		 			<option value="" disabled selected>Select Time</option>
-   		 				  	<option value="Load from User">Load in JS</option>
+   		 				  	<option value="chordProgressionId">Prog Text</option>
    		 				</select>
     					<label>Your Chord Progressions</label>
 		      	  	</div>

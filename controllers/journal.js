@@ -45,5 +45,32 @@ router.post('/editJournal', isLoggedIn, function(req, res) {
 	});
 });
 
+router.post('/addJournalItem', isLoggedIn, function(req, res) {
+  	var newJournalItem = req.body;
+  	db.sessionItem.create({
+		sessionLogId: 5,
+		// goalId: "coming soon",
+		activityType: newJournalItem.activityType,
+		title: newJournalItem.jiTitle,
+		link: newJournalItem.jiLink,
+		notes: newJournalItem.jiNotes,
+		time: newJournalItem.time,
+		completed: "false",
+		// chordProgId:
+	})
+  	.then(function(){
+		db.sessionItem.findAll({
+			where: {sessionLogId: 5},
+			order: '"createdAt" ASC'
+		}).done()
+		.then(function(sessionList){
+			res.render('journal/editJournal', {
+				currentUser: req.user,
+				sessionList: sessionList
+			});
+		});
+	});
+});
+
 
 module.exports = router;
