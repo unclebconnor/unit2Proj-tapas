@@ -60,7 +60,7 @@ router.get('/editJournal/:id', isLoggedIn, function(req, res) {
 
 //update edit journal
 router.put('/editJournal/:id', isLoggedIn, function(req, res) {
-	console.log("put fired in the route");
+	console.log(req, "##############");
 	// res.render('journal/editJournal', {
 	// 	currentUser: req.user,
 	// 	sessionLogId: req.params.id
