@@ -28,14 +28,19 @@
 		  	  	<div class="collapsible-header">Most Recent Entry</div>
 		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
 		  	</li>
-		  	<li>
-		  	  	<div class="collapsible-header">Second Most Recent</div>
-		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-		  	</li>
-		  	<li>
-		  	  	<div class="collapsible-header">Ancient History</div>
-		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-		  	</li>
+
+		  	<% for(var i=0; i<sessionList.length; i++){ %>
+		  		<li>
+		  		  	<div class="collapsible-header">
+		  		  		<div><%=sessionList[i].dataValues.date%></div>
+		  		  		<div><%=sessionList[i].dataValues.title%></div>
+		  		  		<div><%=sessionList[i].dataValues.status%></div>
+		  		  	</div>
+		  		  	<div class="collapsible-body">
+		  		  		<span><div><%=sessionList[i].dataValues.notes%></div></span>
+		  		  	</div>
+		  		</li>
+		  	<%}%>
 		</ul>
 	</div>
 	<div class="col s1"></div>
