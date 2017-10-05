@@ -4,6 +4,7 @@ var db = require('../models');
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 
+//get journal list page
 router.get('/', isLoggedIn, function(req, res) {
 	db.sessionLog.findAll({
 		where: {userId: req.user.dataValues.id},
@@ -17,12 +18,16 @@ router.get('/', isLoggedIn, function(req, res) {
 	});
 });
 
-
-router.get('/editJournal', isLoggedIn, function(req, res) {
-  res.render('journal/editJournal', {currentUser: req.user});
+//get create journal
+router.get('/createJournal', isLoggedIn, function(req, res) {
+  res.render('journal/createJournal', {
+  	currentUser: req.user,
+  });
 });
 
-router.post('/editJournal', isLoggedIn, function(req, res) {
+//create journal entry and return to journal list
+//eventually have an if to redirect or reload edit page
+router.post('/createJournal', isLoggedIn, function(req, res) {
   	var newEntry = req.body;
   	db.sessionLog.create({
 		userId: newEntry.userId,
@@ -45,6 +50,36 @@ router.post('/editJournal', isLoggedIn, function(req, res) {
 	});
 });
 
+//get edit journal
+router.get('/editJournal/:id', isLoggedIn, function(req, res) {
+	res.render('journal/editJournal', {
+		currentUser: req.user,
+		sessionLogId: req.params.id
+	});
+});
+
+//update edit journal
+router.put('/editJournal/:id', isLoggedIn, function(req, res) {
+	console.log("put fired in the route");
+	// res.render('journal/editJournal', {
+	// 	currentUser: req.user,
+	// 	sessionLogId: req.params.id
+	// });
+});
+
+// router.post('/createJournal', isLoggedIn, function(req, res) {
+// 	db.sessionLog.create({
+// 		userId: req.user.dataValues.id,
+// 	})
+// 	.then(function(sessionLog){
+// 		res.render('journal/editJournal', {
+// 			currentUser: req.user,
+// 			sessionLog: sessionLog
+// 		});
+// 	});
+// });
+
+//post to create new journal item
 router.post('/addJournalItem', isLoggedIn, function(req, res) {
   	var newJournalItem = req.body;
   	db.sessionItem.create({

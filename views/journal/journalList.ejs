@@ -12,10 +12,11 @@
 <div class="row">
 	<div class="col s1"></div>
 	<div class="col s10">
-		<a href="journal/editJournal" >
-			<button class="btn modal-trigger right">Create Entry</button>
-		</a>
-
+		<form action="journal/createJournal" method="GET"> 
+			<button class="btn modal-trigger right" type="submit">
+				Create Entry
+			</button>
+		</form>
 	</div>
 	<div class="col s1"></div>
 </div>
@@ -32,9 +33,15 @@
 		  	<% for(var i=0; i<sessionList.length; i++){ %>
 		  		<li>
 		  		  	<div class="collapsible-header">
-		  		  		<div><%=sessionList[i].dataValues.date%></div>
-		  		  		<div><%=sessionList[i].dataValues.title%></div>
-		  		  		<div><%=sessionList[i].dataValues.status%></div>
+		  		  		<div class="row ">
+		  		  			<div class="col s4">Date: <%=sessionList[i].dataValues.date%> </div>
+		  		  			<div class="col s4">Title: <%=sessionList[i].dataValues.title%> </div>
+		  		  			<div class="col s2">Status: <%=sessionList[i].dataValues.status%> </div>
+		  		  			<div class="col s2 right">
+		  		  				<a href="journal/editJournal/<%=sessionList[i].dataValues.id%> ">Edit</a>
+		  		  			</div>
+		  		  		</div>
+
 		  		  	</div>
 		  		  	<div class="collapsible-body">
 		  		  		<span><div><%=sessionList[i].dataValues.notes%></div></span>
@@ -45,3 +52,25 @@
 	</div>
 	<div class="col s1"></div>
 </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- blankspaceyo -->

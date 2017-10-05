@@ -10,15 +10,14 @@
 	<div class="col s1"></div>
 </div>
 
-
 <!-- Form -->
 <div class="row">
 	<div class="col s1"></div>
-    <form class="col s10  z-depth-1" action="/journal/editJournal" method="POST">
-    	<input id="userId" name="userId" type="hidden" value="<%=currentUser.dataValues.id%>">
+    <form class="col s10  z-depth-1" method="PUT" action="/journal/editJournal/<%=sessionLogId%>>
+    	<input id="userId" name="userId" type="hidden" "value="<%=currentUser.dataValues.id%>">
     	<header class="row valign-wrapper">
     		<h5 class="col s10">Edit Journal Entry</h5>
-    		<button type="submit" class="btn">Save</button>
+    		<button id="saveSessionLog"  type="submit" class="btn">Save</button>
     	</header>
       	<div class="row">
       	  	<div class="input-field col s6">
@@ -31,7 +30,7 @@
    		 		  	<option value="open" selected>Open</option>
    		 		  	<option value="closed">Closed</option>
    		 		</select>
-    			<label>Journal Entry Status</label>
+    			<label for="journalEntryStatus">Journal Entry Status</label>
       	  	</div>        
       	  	<div class="input-field col s3">
       	  	  	<input name="journalEntryDate" id="journalEntryDate" type="text" class="datepicker">
@@ -46,7 +45,7 @@
       	  	</div>
       	</div>
       	<div class="row">
-    		<button data-target="addJournalItem" class="btn modal-trigger">Add Item
+    		<button data-target="addJournalItem" id="addJournalItem" class="btn modal-trigger">Add Item
     			<i class="material-icons right">add</i>
     		</button>
     	</div>
@@ -143,5 +142,49 @@
 		      	</div>
 		    </form>
 		</div>
-
 </div>
+
+
+<script
+  src="https://code.jquery.com/jquery-2.2.4.min.js"
+  integrity="sha256-BbhdlvQf/xTY9gja0Dq3HiwQF8LaCRTXxZKRutelT44="
+  crossorigin="anonymous"></script>
+<script>
+  $('#saveSessionLog').on('click', function(e) {
+    e.preventDefault();
+    var updateUrl = $(this).parent().parent().attr('action');
+    var formData = $(this).parent().parent().serialize();
+    console.log(formData);
+    $.ajax({
+      method: 'PUT',
+      url: updateUrl,
+      sessionItem: formData
+    })
+    .done(function(data) {
+    	console.log("ajax done");
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+xtralinez -->
