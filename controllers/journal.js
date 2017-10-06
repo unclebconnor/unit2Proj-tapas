@@ -21,8 +21,16 @@ router.get('/', isLoggedIn, function(req, res) {
 //get create journal
 router.get('/createJournal', isLoggedIn, function(req, res) {
   res.render('journal/createJournal', {
-  	currentUser: req.user,
+  	currentUser: req.user
   });
+});
+
+//get edit journal
+router.get('/editJournal', isLoggedIn, function(req, res) {
+	res.render('journal/editJournal', {
+		currentUser: req.user,
+		sessionLogId: 60
+	});
 });
 
 //create journal entry and return to journal list
@@ -50,21 +58,20 @@ router.post('/createJournal', isLoggedIn, function(req, res) {
 	});
 });
 
-//get edit journal
-router.get('/editJournal/:id', isLoggedIn, function(req, res) {
-	res.render('journal/editJournal', {
-		currentUser: req.user,
-		sessionLogId: req.params.id
-	});
-});
 
 //update edit journal
 router.put('/editJournal/:id', isLoggedIn, function(req, res) {
-	console.log(req, "##############");
-	// res.render('journal/editJournal', {
-	// 	currentUser: req.user,
-	// 	sessionLogId: req.params.id
-	// });
+	
+	db.sessionLog.update({
+		title: req.body.journalEntryTitle,
+		date: req.body.journalEntryDate,
+		notes: req.body.journalEntryNotes,
+		status: req.body.journalEntryStatus
+	},{
+		where: {id: req.params.id}
+	}).then(function(updated){
+		console.log(updated);
+	});	
 });
 
 // router.post('/createJournal', isLoggedIn, function(req, res) {

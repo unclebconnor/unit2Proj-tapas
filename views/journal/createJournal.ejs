@@ -16,7 +16,7 @@
     <form class="col s10  z-depth-1" action="/journal/createJournal" method="POST">
     	<input id="userId" name="userId" type="hidden" value="<%=currentUser.dataValues.id%>">
     	<header class="row valign-wrapper">
-    		<h5 class="col s10">Edit Journal Entry</h5>
+    		<h5 class="col s10">Create Journal Entry</h5>
     		<button type="submit" class="btn">Save</button>
     	</header>
       	<div class="row">
@@ -31,7 +31,7 @@
    		 		  	<option value="closed">Closed</option>
    		 		</select>
     			<label>Journal Entry Status</label>
-      	  	</div>        
+      	  	</div>       
       	  	<div class="input-field col s3">
       	  	  	<input name="journalEntryDate" id="journalEntryDate" type="text" class="datepicker">
       	  	  	<label for="journalEntryDate">Date</label>
@@ -44,11 +44,6 @@
       	  	  	<label for="journalNotes">Journal Entry Notes</label>
       	  	</div>
       	</div>
-      	<div class="row">
-    		<button data-target="addJournalItem" id="addJournalItem" class="btn modal-trigger">Add Item
-    			<i class="material-icons right">add</i>
-    		</button>
-    	</div>
     </form>
     <div class="col s1"></div>
 </div>
