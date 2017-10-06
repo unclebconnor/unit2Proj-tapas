@@ -84,11 +84,16 @@
     				</button></h5>
     			</header>
 				<ul class="collection">
-    			  	<li class="collection-item">Chord Key Beats
-    			  		<a href="#">Edit</a> <a href="#">Delete</a></li>
-    			  	<li class="collection-item">Chord Key Beats</li>
-    			  	<li class="collection-item">Chord Key Beats</li>
-    			  	<li class="collection-item">Chord Key Beats</li>
+                <%if(segments.length>0){%>
+                <%segments.forEach(function(segment){%>
+              <li class="collection-item">
+                <div>Chord: <%=segment.dataValues.harmString%></div>
+                <div>Scale: <%=segment.dataValues.melString%></div>
+                <div>Beats: <%=segment.dataValues.beats%></div>
+                <a href="#">Edit</a> <a href="#">Delete</a>
+              </li>  
+                <%});%>
+                <%}%>
     			</ul>
 			</div>
 		</div>

@@ -25,11 +25,26 @@ router.get('/createProgression', isLoggedIn, function(req, res) {
   	});
 });
 
+//needs that query string yo
 router.get('/editProgression', isLoggedIn, function(req, res) {
-  	res.render('progression/editProgression',{
-		currentUser:req.user,
-		progressionId: req.query.id
-	});
+  	db.chordProgression.find({
+  		where: {id: req.query.id},
+  		include: [{
+  			model: db.chordProgSegment,
+  			where: {chordProgressionId: req.query.id}
+  		}]
+  	})
+  	.then(function(chordProg){
+  		var segments = [];
+  		if(chordProg!==null){
+  			segments = chordProg.dataValues.chordProgSegments;
+  		}
+  		res.render('progression/editProgression',{
+			currentUser:req.user,
+			progressionId: req.query.id,
+			segments: segments
+		});
+  	});
 });
 
 
@@ -61,25 +76,17 @@ router.post('/createProgression', isLoggedIn, function(req, res) {
 
 //post to create new progression segment item
 router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
+  	console.log(req.body,"###REQBODYREQBODY###");
   	var newProgressionSegment = req.body;
   	db.chordProgSegment.create({
-		progressionId: newProgressionSegment.progressionId,
+		chordProgressionId: newProgressionSegment.progressionId,
 		melString: newProgressionSegment.melElement,
 		harmString: newProgressionSegment.harmElement,
 		beats: newProgressionSegment.beats,
 		sequence: newProgressionSegment.sequence
-	// })
- //  	.then(function(){
-	// 	db.sessionItem.findAll({
-	// 		where: {sessionLogId: 5},
-	// 		order: '"createdAt" ASC'
-	// 	}).done()
-	// 	.then(function(sessionList){
-	// 		res.render('journal/editJournal', {
-	// 			currentUser: req.user,
-	// 			sessionList: sessionList
-	// 		});
-	// 	});
+	})
+	.then(function(){
+		res.redirect('/progression/editProgression?id='+newProgressionSegment.progressionId);
 	});
 });
 

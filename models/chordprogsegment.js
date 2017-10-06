@@ -1,12 +1,12 @@
 'use strict';
 module.exports = (sequelize, DataTypes) => {
   var chordProgSegment = sequelize.define('chordProgSegment', {
-    harmId: DataTypes.INTEGER,
-    melId: DataTypes.INTEGER,
+    harmonicElementId: DataTypes.INTEGER,
+    melodicElementId: DataTypes.INTEGER,
     harmString: DataTypes.STRING,
     melString: DataTypes.STRING,
     sequence: DataTypes.INTEGER,
-    chordProgId: DataTypes.INTEGER,
+    chordProgressionId: DataTypes.INTEGER,
     beats: DataTypes.INTEGER
   }, {
     classMethods: {

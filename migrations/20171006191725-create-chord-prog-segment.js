@@ -8,10 +8,10 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
-      harmId: {
+      harmonicElementId: {
         type: Sequelize.INTEGER
       },
-      melId: {
+      melodicElementId: {
         type: Sequelize.INTEGER
       },
       harmString: {
@@ -23,7 +23,7 @@ module.exports = {
       sequence: {
         type: Sequelize.INTEGER
       },
-      chordProgId: {
+      chordProgressionId: {
         type: Sequelize.INTEGER
       },
       beats: {
