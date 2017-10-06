@@ -63,9 +63,9 @@ router.post('/createProgression', isLoggedIn, function(req, res) {
 router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
   	var newProgressionSegment = req.body;
   	db.chordProgSegment.create({
-		chordProgressionId: newProgressionSegment.progressionId,
-		melIdString: newProgressionSegment.melElement,
-		harmIdString: newProgressionSegment.harmElement,
+		progressionId: newProgressionSegment.progressionId,
+		melString: newProgressionSegment.melElement,
+		harmString: newProgressionSegment.harmElement,
 		beats: newProgressionSegment.beats,
 		sequence: newProgressionSegment.sequence
 	// })

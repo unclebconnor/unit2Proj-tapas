@@ -14,17 +14,20 @@ module.exports = {
       melId: {
         type: Sequelize.INTEGER
       },
-      sequence: {
-        type: Sequelize.INTEGER
-      },
-      beats: {
-        type: Sequelize.INTEGER
-      },
       harmString: {
         type: Sequelize.STRING
       },
       melString: {
         type: Sequelize.STRING
+      },
+      sequence: {
+        type: Sequelize.INTEGER
+      },
+      chordProgId: {
+        type: Sequelize.INTEGER
+      },
+      beats: {
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,

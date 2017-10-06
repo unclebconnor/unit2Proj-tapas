@@ -3,10 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   var chordProgSegment = sequelize.define('chordProgSegment', {
     harmId: DataTypes.INTEGER,
     melId: DataTypes.INTEGER,
-    sequence: DataTypes.INTEGER,
-    beats: DataTypes.INTEGER,
     harmString: DataTypes.STRING,
-    melString: DataTypes.STRING
+    melString: DataTypes.STRING,
+    sequence: DataTypes.INTEGER,
+    chordProgId: DataTypes.INTEGER,
+    beats: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
