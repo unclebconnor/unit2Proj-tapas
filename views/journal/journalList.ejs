@@ -33,12 +33,13 @@
 		  	<% for(var i=0; i<sessionList.length; i++){ %>
 		  		<li>
 		  		  	<div class="collapsible-header">
-		  		  		<div class="row">
+		  		  		<div class="row col s12">
 		  		  			<div class="col s4">Date: <%=sessionList[i].dataValues.date%> </div>
 		  		  			<div class="col s4">Title: <%=sessionList[i].dataValues.title%> </div>
 		  		  			<div class="col s2">Status: <%=sessionList[i].dataValues.status%> </div>
 		  		  			<div class="col s2 right">
-		  		  				<a href="/journal/editJournal">Edit</a>
+		  		  				<a href="/progression/editProgression?id=<%=sessionList[i].dataValues.id%>">Edit</a>
+		  		  				
 		  		  			</div>
 		  		  		</div>
 

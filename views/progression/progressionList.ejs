@@ -13,8 +13,8 @@
 <div class="row">
 	<div class="col s1"></div>
 	<div class="col s10">
-		<a href="progression/editProgression" >
-			<button class="btn modal-trigger right">New Progression</button>
+		<a href="progression/createProgression" >
+			<button class="btn right">New Progression</button>
 		</a>
 
 	</div>
@@ -29,14 +29,25 @@
 		  	  	<div class="collapsible-header">Progression 1</div>
 		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
 		  	</li>
-		  	<li>
-		  	  	<div class="collapsible-header">Progression 2</div>
-		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-		  	</li>
-		  	<li>
-		  	  	<div class="collapsible-header">Progression 3</div>
-		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
-		  	</li>
+		  	<% for(var i=0; i<progressionList.length; i++){ %>
+		  		<li>
+		  		  	<div class="collapsible-header">
+		  		  		<div class="row col s12">
+		  		  			<div class="col s8">Name: <%=progressionList[i].dataValues.name%> </div>
+		  		  			<div class="col s2 right">
+		  		  				<a href="/journal/editJournal?id=<%=progressionList[i].dataValues.id%>">Edit</a>
+		  		  				
+		  		  			</div>
+		  		  		</div>
+
+		  		  	</div>
+		  		  	<div class="collapsible-body">
+		  		  		<span><div><%=progressionList[i].dataValues.description%></div></span>
+		  		  	</div>
+		  		</li>
+		  	<%}%>
+
+
 		</ul>
 	</div>
 	<div class="col s1"></div>

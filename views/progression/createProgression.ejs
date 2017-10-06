@@ -1,0 +1,92 @@
+<!-- breadcrumbs -->
+<div class="row bcbreadcrumb">
+	<div class="col s1"></div>
+	<div class="col s10">
+	   	<h5><a href="/progression" class="valign-wrapper">
+	   		<i class="material-icons">arrow_back</i>
+	   		My Progressions
+		</a></h5>
+	</div>
+	<div class="col s1"></div>
+</div>
+
+
+<!-- Form -->
+<div class="row">
+	<div class="col s1"></div>
+	<div class="col s6 z-depth-1">
+		<form class="col s12" action="/progression/createProgression" method="POST">
+    	<header class="row valign-wrapper">
+    		<h5 class="col s10">Create Chord Progression</h5>
+    		
+        <button type="submit" class="btn">Save</button>
+    	</header>
+      <input id="userId" name="userId" type="hidden" value="<%=currentUser.dataValues.id%>">
+      	<div class="row">
+      	  <div class="input-field col s12">
+      	    	<input name="progressionName" placeholder="Add name here" id="progressionName" type="text" class="validate">
+      	    	<label for="progressionName">Progression Name</label>
+      	  </div>
+        </div>
+      	<div class="row">
+      		<div class="input-field col s4">
+   		 		<select name="timeSignature">
+   		 		  	<option value="4/4" selected>4/4</option>
+   		 		  	<option value="3/4">3/4</option>
+   		 		  	<option value="5/4">5/4</option>
+   		 		  	<option value="2/4">2/4</option>
+   		 		  	<option value="6/8">6/8</option>
+   		 		  	<option value="7/8">7/8</option>
+   		 		  	<option value="9/8">9/8</option>
+   		 		  	<option value="11/12">11/12</option>
+   		 		  	<option value="13/12">13/12</option>
+   		 		</select>
+    			<label>Time Signature</label>
+      	  	</div>        
+       	  	<div class="input-field col s4">
+   		 		<select name="keySignature">
+   		 		  	<option value="" disabled selected></option>
+   		 		  	<option value="C Maj">C Maj</option>
+   		 		  	<option value="1 Sharp">1 Sharp</option>
+   		 		  	<option value="2 Sharps">2 Sharps</option>
+   		 		  	<option value="3 Sharps">3 Sharps</option>
+   		 		  	<option value="4 Sharps">4 Sharps</option>
+   		 		  	<option value="5 Sharps">5 Sharps</option>
+   		 		</select>
+    			<label>Key Signature</label>
+      	  	</div>
+      	  	<div class="input-field col s4">
+   		 		<select name="totalMeasures">
+   		 		  	<option value="" disabled selected></option>
+   		 		  	<option value="1">1</option>
+   		 		  	<option value="2">2</option>
+   		 		  	<option value="3">3</option>
+   		 		  	<option value="4">4</option>
+   		 		  	<option value="5">5</option>
+   		 		  	<option value="6">6</option>
+   		 		</select>
+    			<label>Total Measures</label>
+      	  	</div>
+      	</div>
+      	<div class="row">
+      	  	<div class="input-field col s12">
+      	  	  	<textarea name="progDesc" placeholder="Add Description Here" id="progDesc" class="materialize-textarea"></textarea>
+      	  	  	<label for="progDesc">Progression Description</label>
+      	  	</div>
+      	</div>
+    </form>
+	</div>
+	<div class="col s1"></div>
+	<div class="col s3 z-depth-1">
+		<div class="row">
+			<div class="col s12">
+				<header class="row center-align">
+    				<h5><button data-target="addProgressionSegment" class="btn modal-trigger disabled">Add Segment
+    				<i class="material-icons right">add</i>
+    				</button></h5>
+    			</header>
+			</div>
+		</div>
+	</div>
+	<div class="col s1"></div>
+</div>

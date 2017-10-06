@@ -26,10 +26,10 @@ router.get('/createJournal', isLoggedIn, function(req, res) {
 });
 
 //get edit journal
-router.get('/editJournal', isLoggedIn, function(req, res) {
+router.get('/editJournal/', isLoggedIn, function(req, res) {
 	res.render('journal/editJournal', {
 		currentUser: req.user,
-		sessionLogId: 60
+		sessionLogId: req.query.id
 	});
 });
 
@@ -60,18 +60,21 @@ router.post('/createJournal', isLoggedIn, function(req, res) {
 
 
 //update edit journal
-router.put('/editJournal/:id', isLoggedIn, function(req, res) {
-	
+router.put('/editJournal', isLoggedIn, function(req, res) {
 	db.sessionLog.update({
 		title: req.body.journalEntryTitle,
 		date: req.body.journalEntryDate,
 		notes: req.body.journalEntryNotes,
 		status: req.body.journalEntryStatus
 	},{
-		where: {id: req.params.id}
-	}).then(function(updated){
-		console.log(updated);
-	});	
+		where: {id: req.body.sessionLogId}
+	})
+	.then(function(){
+		console.log("#########");
+		res.redirect('journalList/');
+	})
+
+		
 });
 
 // router.post('/createJournal', isLoggedIn, function(req, res) {
