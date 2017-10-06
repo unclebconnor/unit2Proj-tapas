@@ -68,26 +68,11 @@ router.put('/editJournal', isLoggedIn, function(req, res) {
 		status: req.body.journalEntryStatus
 	},{
 		where: {id: req.body.sessionLogId}
-	})
-	.then(function(){
-		console.log("#########");
-		res.redirect('journalList/');
-	})
-
-		
+	}).then(function(){
+		res.end();
+	})	
 });
 
-// router.post('/createJournal', isLoggedIn, function(req, res) {
-// 	db.sessionLog.create({
-// 		userId: req.user.dataValues.id,
-// 	})
-// 	.then(function(sessionLog){
-// 		res.render('journal/editJournal', {
-// 			currentUser: req.user,
-// 			sessionLog: sessionLog
-// 		});
-// 	});
-// });
 
 //post to create new journal item
 router.post('/addJournalItem', isLoggedIn, function(req, res) {

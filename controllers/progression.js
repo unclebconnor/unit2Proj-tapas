@@ -25,9 +25,13 @@ router.get('/createProgression', isLoggedIn, function(req, res) {
   	});
 });
 
-// router.get('/editProgression', isLoggedIn, function(req, res) {
-//   res.render('progression/editProgression');
-// });
+router.get('/editProgression', isLoggedIn, function(req, res) {
+  	res.render('progression/editProgression',{
+		currentUser:req.user,
+		progressionId: req.query.id
+	});
+});
+
 
 //create a new progression
 router.post('/createProgression', isLoggedIn, function(req, res) {
@@ -52,6 +56,30 @@ router.post('/createProgression', isLoggedIn, function(req, res) {
 				progressionList: progressionList
 			});
 		});
+	});
+});
+
+//post to create new progression segment item
+router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
+  	var newProgressionSegment = req.body;
+  	db.chordProgSegment.create({
+		chordProgressionId: newProgressionSegment.progressionId,
+		melIdString: newProgressionSegment.melElement,
+		harmIdString: newProgressionSegment.harmElement,
+		beats: newProgressionSegment.beats,
+		sequence: newProgressionSegment.sequence
+	// })
+ //  	.then(function(){
+	// 	db.sessionItem.findAll({
+	// 		where: {sessionLogId: 5},
+	// 		order: '"createdAt" ASC'
+	// 	}).done()
+	// 	.then(function(sessionList){
+	// 		res.render('journal/editJournal', {
+	// 			currentUser: req.user,
+	// 			sessionList: sessionList
+	// 		});
+	// 	});
 	});
 });
 
