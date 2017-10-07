@@ -26,7 +26,7 @@ router.get('/createJournal', isLoggedIn, function(req, res) {
 });
 
 //get edit journal
-router.get('/editJournal/', isLoggedIn, function(req, res) {
+router.get('/editJournal', isLoggedIn, function(req, res) {
 	res.render('journal/editJournal', {
 		currentUser: req.user,
 		sessionLogId: req.query.id
@@ -78,7 +78,7 @@ router.put('/editJournal', isLoggedIn, function(req, res) {
 router.post('/addJournalItem', isLoggedIn, function(req, res) {
   	var newJournalItem = req.body;
   	db.sessionItem.create({
-		sessionLogId: 5,
+		sessionLogId: newJournalItem.sessionLogId,
 		// goalId: "coming soon",
 		activityType: newJournalItem.activityType,
 		title: newJournalItem.jiTitle,
@@ -90,13 +90,13 @@ router.post('/addJournalItem', isLoggedIn, function(req, res) {
 	})
   	.then(function(){
 		db.sessionItem.findAll({
-			where: {sessionLogId: 5},
+			where: {sessionLogId: newJournalItem.sessionLogId},
 			order: '"createdAt" ASC'
-		}).done()
+		})
 		.then(function(sessionList){
 			res.render('journal/editJournal', {
 				currentUser: req.user,
-				sessionList: sessionList
+				sessionLogId: newJournalItem.sessionLogId
 			});
 		});
 	});
