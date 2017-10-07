@@ -27,11 +27,19 @@ router.get('/createJournal', isLoggedIn, function(req, res) {
 
 //get edit journal
 router.get('/editJournal', isLoggedIn, function(req, res) {
-	res.render('journal/editJournal', {
-		currentUser: req.user,
-		sessionLogId: req.query.id
+	db.sessionItem.findAll({
+		where: {sessionLogId: req.query.id},
+		order: '"createdAt" ASC'
+	})
+	.then(function(sessionList){
+		res.render('journal/editJournal', {
+			currentUser: req.user,
+			sessionList: sessionList,
+			sessionLogId: req.query.id
+		});
 	});
 });
+
 
 //create journal entry and return to journal list
 //eventually have an if to redirect or reload edit page
@@ -96,6 +104,7 @@ router.post('/addJournalItem', isLoggedIn, function(req, res) {
 		.then(function(sessionList){
 			res.render('journal/editJournal', {
 				currentUser: req.user,
+				sessionList: sessionList,
 				sessionLogId: newJournalItem.sessionLogId
 			});
 		});
