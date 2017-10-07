@@ -32,6 +32,7 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 		order: '"createdAt" ASC'
 	})
 	.then(function(sessionList){
+		console.log(sessionList, "########")
 		res.render('journal/editJournal', {
 			currentUser: req.user,
 			sessionList: sessionList,

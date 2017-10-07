@@ -68,11 +68,19 @@
 			  	</li>
 			  	<%sessionList.forEach(function(session){%>
 			  		<li>
-			  	  		<div class="collapsible-header">
-			  	  			<%=session.dataValues.title %>
+			  	  		<div class="collapsible-header col s12">
+			  	  			<div class="col s3">
+			  	  				<%=session.dataValues.title %>
+			  	  			</div>
+			  	  			<div class="col s3">
+			  	  				<%=session.dataValues.activityType %>
+			  	  			</div>
+			  	  			<div class="col s3">
+			  	  				<%=session.dataValues.completed %>
+			  	  			</div>
 			  	  		</div>
 			  	  		<div class="collapsible-body">
-			  	  			<%=session.dataValues.notes %>
+			  	  			<span><%=session.dataValues.notes %></span>
 			  	  		</div>
 			  		</li>
 			  	<%});%>
