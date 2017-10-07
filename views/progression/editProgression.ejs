@@ -165,4 +165,44 @@
 <div class="divider"></div>
 <div>
 	<h5>Chord Progression Preview</h5>
-</div>
+  </div>
+<div id="boo"></div>
+
+<script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
+<script>
+  var vf = new Vex.Flow.Factory({renderer: {elementId: 'boo', height: 300}});
+  var score = vf.EasyScore();
+  var system = vf.System();
+
+  system.addStave({
+  voices: [score.voice(score.notes('(G5 B5 D6)/w'))]
+}).addClef('treble').addTimeSignature('4/4');
+
+system.addStave({
+  voices: [score.voice(score.notes('C#5/q, G5, A4, G#4'))]
+}).addClef('treble').addTimeSignature('4/4');
+
+system.addConnector()
+
+vf.draw();
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- 
+  goodidea -->
+
+
+
+

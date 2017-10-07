@@ -4,6 +4,7 @@ var db = require('../models');
 var passport = require('../config/ppConfig');
 var isLoggedIn = require('../middleware/isLoggedIn');
 
+
 //get progression list (not breaking at the moment)
 router.get('/', isLoggedIn, function(req, res) {
 	db.chordProgression.findAll({
@@ -42,7 +43,7 @@ router.get('/editProgression', isLoggedIn, function(req, res) {
   		res.render('progression/editProgression',{
 			currentUser:req.user,
 			progressionId: req.query.id,
-			segments: segments
+			segments: segments,
 		});
   	});
 });
