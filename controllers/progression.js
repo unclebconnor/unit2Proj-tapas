@@ -51,6 +51,7 @@ router.get('/editProgression', isLoggedIn, function(req, res) {
   				if(chordProg!==null){
   					segments = chordProg.dataValues.chordProgSegments;
   				}
+  				console.log(harmElems[5]);
   				res.render('progression/editProgression',{
 					currentUser:req.user,
 					progressionId: req.query.id,
@@ -58,7 +59,7 @@ router.get('/editProgression', isLoggedIn, function(req, res) {
 					harmElems: harmElems,
 					melElems: melElems
 				});
-  			})	
+  			});	
   		});	
   	});
 });
@@ -106,8 +107,11 @@ router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
 				chordProgressionId: newProgressionSegment.progressionId,
 				melodicElementId: newProgressionSegment.melElement,
 				harmonicElementId: newProgressionSegment.harmElement,
-				harmString: harmElem.dataValues.name,
-				melString: melElem.dataValues.name,
+				harmName: harmElem.dataValues.name,
+				melName: melElem.dataValues.name,
+				harmEasyScore: harmElem.dataValues.easyScore,
+				melFirstFour: melElem.dataValues.firstFourDur,
+				melSecondFour: melElem.dataValues.secondFour,
 				sequence: newProgressionSegment.sequence
 			})
   		})

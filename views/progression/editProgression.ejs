@@ -22,7 +22,7 @@
     	</header>
       	<div class="row">
       	  	<div class="input-field col s12">
-      	  	  	<input placeholder="Add name here" id="progressionName" type="text" class="validate">
+      	  	  	<input placeholder="Add name here" id="progressionName" type="text" class="validate" required>
       	  	  	<label for="progressionName">Progression Name</label>
       	  	</div>
         </div>
@@ -68,8 +68,8 @@
                 <%segments.forEach(function(segment){%>
               <li class="collection-item">
                 <div>Sequence: <%=segment.sequence%></div>
-                <div>Chord: <%=segment.harmString%></div>
-                <div>Scale: <%=segment.melString%></div>
+                <div>Chord: <%=segment.harmName%></div>
+                <div>Scale: <%=segment.melName%></div>
                 <a href="#">Delete</a>
               </li>  
                 <%});%>
@@ -133,30 +133,50 @@
 		</div>
 </div>
 <div class="divider"></div>
-<div>
-	<h5>Chord Progression Preview</h5>
-  </div>
-<div id="boo"></div>
 
+<!-- Needed for Vexflow below -->
 <script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
-<script>
-  var vf = new Vex.Flow.Factory({renderer: {elementId: 'boo', height: 300}});
-  var score = vf.EasyScore();
-  var system = vf.System();
+<div class="row">
+  <div class="col s1"></div>
+  <div class="col s10">
+    <div class="col s12"><h5>Chord Progression Preview</h5></div>
+    
+    <%segments.forEach(function(segment){%>
+    <div id="<%=segment.harmName%><%=segment.melName%><%=segment.sequence%>"></div>
+    <script>
+      var vf = new Vex.Flow.Factory({
+        renderer: {
+          elementId: '<%=segment.harmName%><%=segment.melName%><%=segment.sequence%>', 
+          height: 270
+        }
+      });
+      var score = vf.EasyScore();
+      var system = vf.System();
+      var harmElemId = <%=segment.harmonicElementId%>;
 
-  system.addStave({
-  voices: [score.voice(score.notes('(G5 B5 D6)/w'))]
-}).addClef('treble').addTimeSignature('4/4');
+      system.addStave({
+        voices: [score.voice(score.notes('<%=segment.harmEasyScore%>'))]
+      }).addClef('treble').addTimeSignature('4/4');
+    
+      system.addStave({
+        voices: [score.voice(
+          score.beam(score.notes('<%=segment.melFirstFour%>', {stem: 'up'}))
+          .concat(score.beam(score.notes('<%=segment.melSecondFour%>', {stem: 'down'})))
+        )]
+      }).addClef('treble').addTimeSignature('4/4');
+      
+      system.addConnector()
+      
+      vf.draw();
+    
+    </script>
+    <%});%>
 
-system.addStave({
-  voices: [score.voice(score.notes('C#5/q, G5, A4, G#4'))]
-}).addClef('treble').addTimeSignature('4/4');
+  </div>
+  <div class="col s1"></div>
+</div>
+	
 
-system.addConnector()
-
-vf.draw();
-
-</script>
 
 
 

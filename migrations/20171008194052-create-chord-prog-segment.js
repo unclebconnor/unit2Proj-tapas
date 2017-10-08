@@ -14,10 +14,19 @@ module.exports = {
       melodicElementId: {
         type: Sequelize.INTEGER
       },
-      harmString: {
+      harmName: {
         type: Sequelize.STRING
       },
-      melString: {
+      melName: {
+        type: Sequelize.STRING
+      },
+      harmEasyScore: {
+        type: Sequelize.STRING
+      },
+      melFirstFour: {
+        type: Sequelize.STRING
+      },
+      melSecondFour: {
         type: Sequelize.STRING
       },
       sequence: {
