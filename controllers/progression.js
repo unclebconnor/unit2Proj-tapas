@@ -30,21 +30,23 @@ router.get('/createProgression', isLoggedIn, function(req, res) {
 router.get('/editProgression', isLoggedIn, function(req, res) {
   	db.chordProgression.find({
   		where: {id: req.query.id},
+  		order: '"sequence" ASC',
   		include: [{
   			model: db.chordProgSegment,
-  			where: {chordProgressionId: req.query.id}
+  			where: {chordProgressionId: req.query.id},
   		}]
   	})
   	.then(function(chordProg){
   		db.harmonicElement.findAll({
-  			attributes: ['id','name','easyScore']
+  			attributes: ['id','name','easyScore'],
+  			order: '"id" ASC'
   		})
-  		.then(function(harmElem){
+  		.then(function(harmElems){
   			db.melodicElement.findAll({
-  				attributes: ['id','name','firstFourDur','secondFour']
+  				attributes: ['id','name','firstFourDur','secondFour'],
+  				order: '"id" ASC'
   			})
-  			.then(function(melElem){
-  				console.log("#######mELELEM########",melElem, "####SESSSHHH#####",harmElem);
+  			.then(function(melElems){
   				var segments = [];
   				if(chordProg!==null){
   					segments = chordProg.dataValues.chordProgSegments;
@@ -53,8 +55,8 @@ router.get('/editProgression', isLoggedIn, function(req, res) {
 					currentUser:req.user,
 					progressionId: req.query.id,
 					segments: segments,
-					harmElem: harmElem,
-					melElem: melElem
+					harmElems: harmElems,
+					melElems: melElems
 				});
   			})	
   		});	
@@ -79,7 +81,6 @@ router.post('/createProgression', isLoggedIn, function(req, res) {
 			order: '"createdAt" DESC'
 		})
 		.then(function(progressionList){
-			console.log(progressionList,"#####");
 			res.render('progression/progressionList',{
 				currentUser:req.user,
 				progressionList: progressionList
@@ -91,13 +92,27 @@ router.post('/createProgression', isLoggedIn, function(req, res) {
 //post to create new progression segment item
 router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
   	var newProgressionSegment = req.body;
-  	db.chordProgSegment.create({
-		chordProgressionId: newProgressionSegment.progressionId,
-		melString: newProgressionSegment.melElement,
-		harmString: newProgressionSegment.harmElement,
-		beats: newProgressionSegment.beats,
-		sequence: newProgressionSegment.sequence
-	})
+  	
+  	db.melodicElement.findOne({
+  		where: {id: newProgressionSegment.melElement}
+  	})
+  	.then(function(melElem){
+  		db.harmonicElement.findOne({
+  			where: {id: newProgressionSegment.harmElement}
+  		})
+  		.then(function(harmElem){
+  			console.log("######HARM#####",harmElem,"######MEL#####",melElem)
+  			db.chordProgSegment.create({
+				chordProgressionId: newProgressionSegment.progressionId,
+				melodicElementId: newProgressionSegment.melElement,
+				harmonicElementId: newProgressionSegment.harmElement,
+				harmString: harmElem.dataValues.name,
+				melString: melElem.dataValues.name,
+				sequence: newProgressionSegment.sequence
+			})
+  		})
+  	})
+  	
 	.then(function(){
 		res.redirect('/progression/editProgression?id='+newProgressionSegment.progressionId);
 	});

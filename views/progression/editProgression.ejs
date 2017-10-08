@@ -30,38 +30,18 @@
       		<div class="input-field col s4">
    		 		<select>
    		 		  	<option value="4/4" selected>4/4</option>
-   		 		  	<option value="3/4">3/4</option>
-   		 		  	<option value="5/4">5/4</option>
-   		 		  	<option value="2/4">2/4</option>
-   		 		  	<option value="6/8">6/8</option>
-   		 		  	<option value="7/8">7/8</option>
-   		 		  	<option value="9/8">9/8</option>
-   		 		  	<option value="11/12">11/12</option>
-   		 		  	<option value="13/12">13/12</option>
    		 		</select>
     			<label>Time Signature</label>
       	  	</div>        
        	  	<div class="input-field col s4">
    		 		<select>
-   		 		  	<option value="" disabled selected></option>
-   		 		  	<option value="C Maj">C Maj</option>
-   		 		  	<option value="1 Sharp">1 Sharp</option>
-   		 		  	<option value="2 Sharps">2 Sharps</option>
-   		 		  	<option value="3 Sharps">3 Sharps</option>
-   		 		  	<option value="4 Sharps">4 Sharps</option>
-   		 		  	<option value="5 Sharps">5 Sharps</option>
+   		 		  	<option value="C Maj" selected>C Maj</option>
    		 		</select>
     			<label>Key Signature</label>
       	  	</div>
       	  	<div class="input-field col s4">
    		 		<select>
-   		 		  	<option value="" disabled selected></option>
-   		 		  	<option value="1">1</option>
-   		 		  	<option value="2">2</option>
-   		 		  	<option value="3">3</option>
-   		 		  	<option value="4">4</option>
-   		 		  	<option value="5">5</option>
-   		 		  	<option value="6">6</option>
+   		 		  	<option value="1" selected>1</option>
    		 		</select>
     			<label>Total Measures</label>
       	  	</div>
@@ -87,10 +67,10 @@
                 <%if(segments.length>0){%>
                 <%segments.forEach(function(segment){%>
               <li class="collection-item">
-                <div>Chord: <%=segment.dataValues.harmString%></div>
-                <div>Scale: <%=segment.dataValues.melString%></div>
-                <div>Beats: <%=segment.dataValues.beats%></div>
-                <a href="#">Edit</a> <a href="#">Delete</a>
+                <div>Sequence: <%=segment.sequence%></div>
+                <div>Chord: <%=segment.harmString%></div>
+                <div>Scale: <%=segment.melString%></div>
+                <a href="#">Delete</a>
               </li>  
                 <%});%>
                 <%}%>
@@ -116,33 +96,23 @@
 		      	<div class="row">
 		      	  	<div class="col s3">
 		   		 		<select name="harmElement">
-		   		 			<option value="" disabled selected>Harmony Element</option>
-   		 				  	<option value="C Maj">C Maj</option>
-   		 				  	<option value="D min">D min</option>
-   		 				  	<option value="F Maj">F Maj</option>
-   		 				  	<option value="G7">G7</option>
+		   		 			<option value="" disabled selected>Chord</option>
+   		 				  	<%harmElems.forEach(function(harmElem){%>
+                    <option value="<%=harmElem.dataValues.id %>">
+                      <%=harmElem.dataValues.name %></option>
+                  <%});%>
    		 				</select>
     					<label>Harmony Element</label>
 		      	  	</div>
 		      	  	<div class="col s3">
 		   		 		<select name="melElement">
-		   		 			<option value="" disabled selected>Melody Element</option>
-   		 				  	<option value="C Maj Scale">C Maj Scale</option>
-   		 				  	<option value="D Minor Arpeggio">D Minor Arpeggio</option>
-   		 				  	<option value="F Maj7 Arpeggio">F Maj7 Arpeggio</option>
-   		 				  	<option value="G7 Arpeggio">G7 Arpeggio</option>
+		   		 			<option value="" disabled selected>Scale/Arpeggio</option>
+   		 				  	<%melElems.forEach(function(melElem){%>
+                    <option value="<%=melElem.dataValues.id %>">
+                      <%=melElem.dataValues.name %></option>
+                  <%});%>
    		 				</select>
     					<label>Melody Element</label>
-		      	  	</div>
-		      	  	<div class="col s3">
-		   		 		<select name="beats">
-		   		 			<option value="" disabled selected>Number of Beats</option>
-   		 				  	<option value="4">4</option>
-   		 				  	<option value="8">8</option>
-   		 				  	<option value="2">2</option>
-   		 				  	<option value="1">1</option>
-   		 				</select>
-    					<label>Number of Beats</label>
 		      	  	</div>
                 <div class="col s3">
               <select name="sequence">
