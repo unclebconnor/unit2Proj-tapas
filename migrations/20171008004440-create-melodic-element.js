@@ -1,7 +1,7 @@
 'use strict';
 module.exports = {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('harmonicElements', {
+    return queryInterface.createTable('melodicElements', {
       id: {
         allowNull: false,
         autoIncrement: true,
@@ -14,16 +14,19 @@ module.exports = {
       description: {
         type: Sequelize.TEXT
       },
+      notesDur: {
+        type: Sequelize.STRING
+      },
       notes: {
         type: Sequelize.STRING
       },
-      firstInv: {
+      firstFour: {
         type: Sequelize.STRING
       },
-      secondInv: {
+      secondFour: {
         type: Sequelize.STRING
       },
-      thirdInv: {
+      firstFourDur: {
         type: Sequelize.STRING
       },
       createdAt: {
@@ -37,6 +40,6 @@ module.exports = {
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('harmonicElements');
+    return queryInterface.dropTable('melodicElements');
   }
 };

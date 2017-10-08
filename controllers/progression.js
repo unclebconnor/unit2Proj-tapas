@@ -77,7 +77,6 @@ router.post('/createProgression', isLoggedIn, function(req, res) {
 
 //post to create new progression segment item
 router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
-  	console.log(req.body,"###REQBODYREQBODY###");
   	var newProgressionSegment = req.body;
   	db.chordProgSegment.create({
 		chordProgressionId: newProgressionSegment.progressionId,

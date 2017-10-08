@@ -3,8 +3,11 @@ module.exports = (sequelize, DataTypes) => {
   var melodicElement = sequelize.define('melodicElement', {
     name: DataTypes.STRING,
     description: DataTypes.TEXT,
-    notesAsc: DataTypes.STRING,
-    notesDesc: DataTypes.STRING
+    notesDur: DataTypes.STRING,
+    notes: DataTypes.STRING,
+    firstFour: DataTypes.STRING,
+    secondFour: DataTypes.STRING,
+    firstFourDur: DataTypes.STRING
   }, {
     classMethods: {
       associate: function(models) {
