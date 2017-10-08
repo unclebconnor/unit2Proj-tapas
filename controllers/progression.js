@@ -36,15 +36,28 @@ router.get('/editProgression', isLoggedIn, function(req, res) {
   		}]
   	})
   	.then(function(chordProg){
-  		var segments = [];
-  		if(chordProg!==null){
-  			segments = chordProg.dataValues.chordProgSegments;
-  		}
-  		res.render('progression/editProgression',{
-			currentUser:req.user,
-			progressionId: req.query.id,
-			segments: segments,
-		});
+  		db.harmonicElement.findAll({
+  			attributes: ['id','name','easyScore']
+  		})
+  		.then(function(harmElem){
+  			db.melodicElement.findAll({
+  				attributes: ['id','name','firstFourDur','secondFour']
+  			})
+  			.then(function(melElem){
+  				console.log("#######mELELEM########",melElem, "####SESSSHHH#####",harmElem);
+  				var segments = [];
+  				if(chordProg!==null){
+  					segments = chordProg.dataValues.chordProgSegments;
+  				}
+  				res.render('progression/editProgression',{
+					currentUser:req.user,
+					progressionId: req.query.id,
+					segments: segments,
+					harmElem: harmElem,
+					melElem: melElem
+				});
+  			})	
+  		});	
   	});
 });
 
