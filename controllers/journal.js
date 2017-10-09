@@ -45,12 +45,12 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
   				}]
   			})
   			.then(function(chordProgs){
-  				console.log(chordProgs)
 				db.sessionItem.findAll({
 					where: {sessionLogId: req.query.id},
 					order: '"createdAt" ASC',
 				})
 				.then(function(sessionList){ 
+					console.log(sessionLog);
 					res.render('journal/editJournal', {
 						currentUser: req.user,
 						sessionList: sessionList,
@@ -116,18 +116,8 @@ router.post('/addJournalItem', isLoggedIn, function(req, res) {
 		completed: "false",
 		// chordProgId:
 	})
-  	.then(function(){
-		db.sessionItem.findAll({
-			where: {sessionLogId: newJournalItem.sessionLogId},
-			order: '"createdAt" ASC'
-		})
-		.then(function(sessionList){
-			res.render('journal/editJournal', {
-				currentUser: req.user,
-				sessionList: sessionList,
-				sessionLogId: newJournalItem.sessionLogId
-			});
-		});
+	.then(function(newSession){
+		res.redirect('/journal/editJournal?id='+newJournalItem.sessionLogId);
 	});
 });
 

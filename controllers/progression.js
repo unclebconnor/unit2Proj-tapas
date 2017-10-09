@@ -106,12 +106,28 @@ router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
 				melSecondFour: melElem.dataValues.secondFour,
 				sequence: newProgressionSegment.sequence
 			})
-  		})
   	})
-  	
+  })
 	.then(function(){
 		res.redirect('/progression/editProgression?id='+newProgressionSegment.progressionId);
 	});
+});
+
+//
+router.put('/editProgression', isLoggedIn, function(req, res) {
+  console.log("########req.body######",req.body);
+  db.chordProgression.update({
+    userId: req.body.userId,
+    name: req.body.progressionName,
+    description: req.body.progDesc,
+    measureCount: req.body.totalMeasures,
+    keySignatureString: req.body.keySignature,
+    timeSignatureString: req.body.timeSignature
+  },{
+    where: {id: req.body.progressionId}
+  }).then(function(){
+    res.end();
+  })  
 });
 
 module.exports = router;

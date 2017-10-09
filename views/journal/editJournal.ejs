@@ -15,7 +15,7 @@
 	<div class="col s1"></div>
     <form class="col s10  z-depth-1" method="POST" action="/journal/editJournal">
     	<input id="userId" name="userId" type="hidden" value="<%=currentUser.dataValues.id%>">
-    	<input id="sessionLogId" name="sessionLogId" type="hidden" value="<%=sessionLogId%>">
+    	<input id="sessionLogId" name="sessionLogId" type="hidden" value="<%=sessionLog.dataValues.id%>">
     	<header class="row valign-wrapper">
     		<h5 class="col s10">Edit Journal Entry</h5>
     		<button id="saveSessionLog"  type="submit" class="btn">Save</button>
