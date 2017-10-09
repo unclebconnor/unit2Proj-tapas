@@ -10,14 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     time: DataTypes.STRING,
     link: DataTypes.TEXT,
     notes: DataTypes.TEXT,
-    chordProgId: DataTypes.INTEGER
+    chordProgressionId: DataTypes.INTEGER
   }, {
     classMethods: {
       associate: function(models) {
         models.sessionItem.belongsTo(models.sessionLog);
         models.sessionItem.belongsTo(models.goal);
-        models.sessionItem.belongsToMany(models.chordProgression, 
-          {through: "sessionItemsChordProgressions"});
+        models.sessionItem.belongsTo(models.chordProgression);
         models.sessionItem.belongsToMany(models.activityType, 
           {through: "sessionItemsActivityTypes"});
       }

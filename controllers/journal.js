@@ -48,9 +48,15 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 				db.sessionItem.findAll({
 					where: {sessionLogId: req.query.id},
 					order: '"createdAt" ASC',
+					include: [{
+						model: db.chordProgression,
+						include: [{
+							model:db.chordProgSegment
+						}]
+					}]
 				})
 				.then(function(sessionList){ 
-					console.log(sessionList);
+					console.log(sessionList[0].dataValues.chordProgression);
 					res.render('journal/editJournal', {
 						currentUser: req.user,
 						sessionList: sessionList,

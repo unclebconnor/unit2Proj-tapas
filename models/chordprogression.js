@@ -10,14 +10,13 @@ module.exports = (sequelize, DataTypes) => {
     keySignature: DataTypes.INTEGER,
     keySignatureString: DataTypes.STRING,
     timesignature: DataTypes.INTEGER,
-    timeSignatureString: DataTypes.STRING
+    timeSignatureString: DataTypes.STRING,
   }, {
     classMethods: {
       associate: function(models) {
         models.chordProgression.belongsTo(models.user);
         models.chordProgression.hasMany(models.chordProgSegment);
-        models.chordProgression.belongsToMany(models.sessionItem, 
-          {through: "sessionItemsChordProgressions"});
+        models.chordProgression.hasMany(models.sessionItem);
       }
     }
   });

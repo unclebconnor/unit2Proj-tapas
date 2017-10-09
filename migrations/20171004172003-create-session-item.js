@@ -35,7 +35,7 @@ module.exports = {
       notes: {
         type: Sequelize.TEXT
       },
-      chordProgId: {
+      chordProgressionId: {
         type: Sequelize.INTEGER
       },
       createdAt: {
