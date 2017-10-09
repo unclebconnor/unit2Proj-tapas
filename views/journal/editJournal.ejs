@@ -82,38 +82,67 @@
 			  		<li>
 			  	  		<div class="collapsible-header col s12">
 			  	  			<div class="col s5">
-			  	  				<%=session.dataValues.title %>
+			  	  				<%=session.title %>
 			  	  			</div>
 			  	  			<div class="col s5">
-			  	  				<%=session.dataValues.activityType %>
+			  	  				<%=session.activityType %>
 			  	  			</div>
 			  	  			<div class="col s2">
-			  	  				<%=session.dataValues.time %>
+			  	  				<%=session.time %>
 			  	  			</div>
 
 			  	  		</div>
 			  	  		<div class="collapsible-body col s12">
-			  	  			<span class="col s12">Link: <a href="<%=session.dataValues.link %>" target="_blank">YOUR LINK</a></span>
-			  	  			<span class="col s12">Notes: <%=session.dataValues.notes %></span>
+			  	  			<span class="col s12">Link: <a href="<%=session.link %>" target="_blank">YOUR LINK</a></span>
+			  	  			<span class="col s12">Notes: <%=session.notes %></span>
 
-<!-- ERRR....this is where the chord progression gets rendered -->
+<!-- ERRR....this is where the chord progression gets rendered...suspending nesting-->
+<%if(session.chordProgression!==null){%>
+  	<script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
+  	<%session.chordProgression.chordProgSegments.forEach(function(segment){%>
+  		<div id="<%=segment.harmName%><%=segment.sequence%><%=session.id%>" class="col s12">
+  		</div>
+  		<script>
 
-		  	  			
-    			
- 
- 
+    		var vf = new Vex.Flow.Factory({
+    		  renderer: {
+    		    elementId: '<%=segment.harmName%><%=segment.sequence%><%=session.id%>', 
+    		    height: 270
+    		  }
+    		});
+    		var score = vf.EasyScore();
+    		var system = vf.System();
+    		var harmElemId = <%=segment.harmonicElementId%>;
+
+    		system.addStave({
+    		 voices: [score.voice(score.notes('<%=segment.harmEasyScore%>'))]
+    		}).addClef('treble').addTimeSignature('4/4');
+    
+    		system.addStave({
+    		  voices: [score.voice(
+    		    score.beam(score.notes('<%=segment.melFirstFour%>', {stem: 'up'}))
+    		    .concat(score.beam(score.notes('<%=segment.melSecondFour%>', {stem: 'down'})))
+    		  )]
+    		}).addClef('treble').addTimeSignature('4/4');
       
-
-
-<!-- End crazy music thing -->
+    		system.addConnector()
+    
+    		vf.draw();
+    
+  		</script>
+	<%});%>
+<%}%>
+		  	  			
+<!-- End crazy music thing and resume nesting (see you're fine)-->
 			  	  		</div>
 			  		</li>
 			  	<%});%>
-			  	
+			  	<!-- End loop creating list items -->
 			</ul>
 		</div>
 	<div class="col s1"></div>
 </div>
+<!-- End Load Journal Items -->
 
 
 <!-- Modal - Add Journal Item -->

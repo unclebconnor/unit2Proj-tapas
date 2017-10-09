@@ -49,15 +49,20 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 					where: {sessionLogId: req.query.id},
 					order: '"createdAt" ASC',
 					include: [{
-						model: db.chordProgression,
+						nested: true,
+						model: db.chordProgression,required: false,
 						include: [{
-							model:db.chordProgSegment
+							nested: true,
+							model:db.chordProgSegment,required: false,
 						}]
 					}]
 				})
 				.then(function(sessionList){ 
-					console.log(sessionList[0].dataValues.chordProgression);
+					
+					sessionList = JSON.parse(JSON.stringify(sessionList));
+					console.log(sessionList[0].chordProgression.chordProgSegments);
 					res.render('journal/editJournal', {
+						
 						currentUser: req.user,
 						sessionList: sessionList,
 						sessionLog: sessionLog,
