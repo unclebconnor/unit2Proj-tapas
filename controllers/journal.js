@@ -44,8 +44,8 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
   					model: db.chordProgSegment,required: false,
   				}]
   			})
-  			.then(function(chordProg){
-  				console.log(chordProg)
+  			.then(function(chordProgs){
+  				console.log(chordProgs)
 				db.sessionItem.findAll({
 					where: {sessionLogId: req.query.id},
 					order: '"createdAt" ASC',
@@ -57,7 +57,7 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 						sessionLog: sessionLog,
 						sessionLogId: req.query.id,
 						activities: activities,
-						chordProg: chordProg,
+						chordProgs: chordProgs,
 					});
 				});
 			});
