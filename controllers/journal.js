@@ -20,25 +20,49 @@ router.get('/', isLoggedIn, function(req, res) {
 
 //get create journal
 router.get('/createJournal', isLoggedIn, function(req, res) {
+  var today = new Date();
   res.render('journal/createJournal', {
-  	currentUser: req.user
+  	currentUser: req.user,
+  	today: today
   });
 });
 
 //get edit journal
 router.get('/editJournal', isLoggedIn, function(req, res) {
-	db.sessionItem.findAll({
-		where: {sessionLogId: req.query.id},
-		order: '"createdAt" ASC'
-	})
-	.then(function(sessionList){
-		console.log(sessionList, "########")
-		res.render('journal/editJournal', {
-			currentUser: req.user,
-			sessionList: sessionList,
-			sessionLogId: req.query.id
-		});
-	});
+	db.sessionLog.findOne({
+  		where: {id: req.query.id},
+  	})
+  	.then(function(sessionLog){
+  		db.activityType.findAll({
+  			// add this later when users can create custom
+  			// where: {id: req.query.id},
+  		})
+  		.then(function(activities){
+  			db.chordProgression.findAll({
+  				where: {userId: req.user.dataValues.id},
+  				include: [{
+  					model: db.chordProgSegment,required: false,
+  				}]
+  			})
+  			.then(function(chordProg){
+  				console.log(chordProg)
+				db.sessionItem.findAll({
+					where: {sessionLogId: req.query.id},
+					order: '"createdAt" ASC',
+				})
+				.then(function(sessionList){ 
+					res.render('journal/editJournal', {
+						currentUser: req.user,
+						sessionList: sessionList,
+						sessionLog: sessionLog,
+						sessionLogId: req.query.id,
+						activities: activities,
+						chordProg: chordProg,
+					});
+				});
+			});
+  		});
+  	});
 });
 
 
@@ -46,24 +70,19 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 //eventually have an if to redirect or reload edit page
 router.post('/createJournal', isLoggedIn, function(req, res) {
   	var newEntry = req.body;
+  	var date = newEntry.journalEntryDate;
+  	if(!date){
+  		date = new Date();
+  	}
   	db.sessionLog.create({
 		userId: newEntry.userId,
 		title: newEntry.journalEntryTitle,
-		date: newEntry.journalEntryDate,
+		date: date,
 		notes: newEntry.journalEntryNotes,
 		status: newEntry.journalEntryStatus
 	})
-  	.then(function(){
-		db.sessionLog.findAll({
-			where: {userId: req.user.dataValues.id},
-			order: '"date" DESC'
-		})
-		.then(function(sessionList){
-			res.render('journal/journalList', {
-				currentUser: req.user,
-				sessionList: sessionList
-			});
-		});
+	.then(function(newSession){
+		res.redirect('/journal/editJournal?id='+newSession.dataValues.id);
 	});
 });
 

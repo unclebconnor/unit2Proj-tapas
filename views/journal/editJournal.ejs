@@ -22,7 +22,7 @@
     	</header>
       	<div class="row">
       	  	<div class="input-field col s6">
-      	  	  	<input name="journalEntryTitle" placeholder="Add title here" id="journalEntryTitle" type="text" class="validate" >
+      	  	  	<input name="journalEntryTitle" placeholder="Add title here" id="journalEntryTitle" type="text" class="validate" value="<%=sessionLog.dataValues.title%>" required>
       	  	  	<label for="journalEntryTitle">Journal Entry Title</label>
       	  	</div>
       	  	<div class="input-field col s3">
@@ -33,14 +33,14 @@
     			<label>Journal Entry Status</label>
       	  	</div>       
       	  	<div class="input-field col s3">
-      	  	  	<input name="journalEntryDate" id="journalEntryDate" type="text" class="datepicker">
+      	  	  	<input name="journalEntryDate" id="journalEntryDate" type="text" class="datepicker" value="<%=sessionLog.dataValues.date%>" required>
       	  	  	<label for="journalEntryDate">Date</label>
       	  	</div>
       	</div>
       	<div class="row">
       	  	<div class="input-field col s12">
       	  	  	<textarea name="journalEntryNotes" placeholder="Add notes here" 
-      	  	  	id="journalNotes" class="materialize-textarea"></textarea>
+      	  	  	id="journalNotes" class="materialize-textarea"><%=sessionLog.dataValues.notes%></textarea>
       	  	  	<label for="journalNotes">Journal Entry Notes</label>
       	  	</div>
       	</div>
@@ -103,7 +103,7 @@
 	      	<div class="row">
 	      	  	<div class="input-field col s8">
 	      	  	  	<input name="jiTitle" placeholder="Add title here" 
-	      	  	  	id="jiTitle" type="text" class="validate">
+	      	  	  	id="jiTitle" type="text" class="validate" required>
 	      	  	  	<label for="jiTitle">Title</label>
 	      	  	</div>
 	      	  	<div class="input-field col s4">
@@ -125,7 +125,7 @@
 	    	</header>
 	      	<div class="row">
 	      	  	<div class="col s6">
-	   		 		<select name="activityType">
+	   		 		<select name="activityType" required>
 	   		 			<option value="" disabled selected>Select Activity</option>
    	 				  	<option value="Scales">Scales</option>
    	 				  	<option value="Warm Up">Warm Up</option>
@@ -135,10 +135,16 @@
     				<label>Activity Type</label>
 	      	  	</div>
 	      	  	<div class="col s3">
-	   		 		<select name="time">
+	   		 		<select name="time" required>
 	   		 			<option value="" disabled selected>Select Time</option>
    	 				  	<option value="05">5 min</option>
-   	 				  	<option value="10">Load in JS</option>
+   	 				  	<option value="10">10 min</option>
+   	 				  	<option value="15">5 min</option>
+   	 				  	<option value="20">10 min</option>
+   	 				  	<option value="30">5 min</option>
+   	 				  	<option value="40">10 min</option>
+   	 				  	<option value="45">5 min</option>
+   	 				  	<option value="60">10 min</option>
    	 				</select>
     				<label>Time</label>
 	      	  	</div>
@@ -153,7 +159,7 @@
 	      	  	</div>
 	      	  	<div class="col s6">
 	   		 		<select name="chordProgId">
-	   		 			<option value="" disabled selected>Select Time</option>
+	   		 			<option value="" disabled selected>Select Chord Progression</option>
    	 				  	<option value="chordProgressionId">Prog Text</option>
    	 				</select>
     				<label>Your Chord Progressions</label>

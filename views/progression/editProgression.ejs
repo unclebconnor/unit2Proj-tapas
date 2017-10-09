@@ -22,25 +22,25 @@
     	</header>
       	<div class="row">
       	  	<div class="input-field col s12">
-      	  	  	<input placeholder="Add name here" id="progressionName" type="text" class="validate" required>
+      	  	  	<input placeholder="Add name here" id="progressionName" type="text" class="validate" value="<%=chordProg.dataValues.name %>" required>
       	  	  	<label for="progressionName">Progression Name</label>
       	  	</div>
         </div>
       	<div class="row">
       		<div class="input-field col s4">
-   		 		<select>
+   		 		<select name=timeSignature>
    		 		  	<option value="4/4" selected>4/4</option>
    		 		</select>
     			<label>Time Signature</label>
       	  	</div>        
        	  	<div class="input-field col s4">
-   		 		<select>
+   		 		<select name="keySignature">
    		 		  	<option value="C Maj" selected>C Maj</option>
    		 		</select>
     			<label>Key Signature</label>
       	  	</div>
       	  	<div class="input-field col s4">
-   		 		<select>
+   		 		<select name=measureCount>
    		 		  	<option value="1" selected>1</option>
    		 		</select>
     			<label>Total Measures</label>
@@ -48,7 +48,7 @@
       	</div>
       	<div class="row">
       	  	<div class="input-field col s12">
-      	  	  	<textarea placeholder="Add Description Here" id="progDesc" class="materialize-textarea"></textarea>
+      	  	  	<textarea placeholder="Add Description Here" id="progDesc" class="materialize-textarea"><%=chordProg.dataValues.description %></textarea>
       	  	  	<label for="progDesc">Progression Description</label>
       	  	</div>
       	</div>
