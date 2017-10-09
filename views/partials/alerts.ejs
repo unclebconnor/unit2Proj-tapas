@@ -1,10 +1,19 @@
-<% if (alerts.error) { %>
-  <% alerts.error.forEach(function(msg) { %>
-    <div class="alert alert-danger"><%= msg %></div>
-  <% }); %>
-<% } %>
-<% if (alerts.success) { %>
-  <% alerts.success.forEach(function(msg) { %>
-    <div class="alert alert-success"><%= msg %></div>
-  <% }); %>
-<% } %>
+
+
+<div style="height:20px"></div>
+<div class="row center-align">
+	<div class="col s3"></div>
+	<div class="col s6">
+		<% if (alerts.error) { %>
+  			<% alerts.error.forEach(function(msg) { %>
+    			<div class="alert alert-danger"><%= msg %></div>
+  			<% }); %>
+		<% } %>
+		<% if (alerts.success) { %>
+  			<% alerts.success.forEach(function(msg) { %>
+    			<div class="alert alert-success"><%= msg %></div>
+  			<% }); %>
+		<% } %>
+	</div>
+   <div class="col s3"></div>
+</div>
