@@ -60,11 +60,10 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 				.then(function(sessionList){ 
 					
 					sessionList = JSON.parse(JSON.stringify(sessionList));
-					console.log(sessionList[0].chordProgression.chordProgSegments);
 					res.render('journal/editJournal', {
 						
 						currentUser: req.user,
-						sessionList: sessionList,
+						sessionList: sessionList, //this sucker is JSON
 						sessionLog: sessionLog,
 						sessionLogId: req.query.id,
 						activities: activities,
