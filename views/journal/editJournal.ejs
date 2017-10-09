@@ -10,7 +10,7 @@
 	<div class="col s1"></div>
 </div>
 
-<!-- Form -->
+<!-- Main journal entry item form -->
 <div class="row">
 	<div class="col s1"></div>
     <form class="col s10  z-depth-1" method="POST" action="/journal/editJournal">
@@ -53,34 +53,59 @@
     <div class="col s1"></div>
 </div>
 
+
 <!-- load journal items -->
 <div class="row">
 	<div class="col s1"></div>
 		<div class="col s10">
 			<ul class="collapsible popout" data-collapsible="expandable">
 			  	<li>
-			  	  	<div class="collapsible-header">
-			  	  		Item 1
-			  	  	</div>
+			  		<!-- This is the header -->
+			  	  	<div class="collapsible-header col s12">
+			  	  			<div class="col s5">
+			  	  				<h5>Title</h5>
+			  	  			</div>
+			  	  			<div class="col s4">
+			  	  				<h5>Activity</h5>
+			  	  			</div>
+			  	  			<div class="col s3">
+			  	  				<h5>Time (min)</h5>
+			  	  			</div>
+
+			  	  		</div>
 			  	  	<div class="collapsible-body">
-			  	  		<span>Lorem ipsum dolor sit amet.</span>
+			  	  		<span>I'm just a header.  Back off.</span>
 			  	  	</div>
 			  	</li>
+			  	<!-- Generates list of session items for this session -->
 			  	<%sessionList.forEach(function(session){%>
 			  		<li>
 			  	  		<div class="collapsible-header col s12">
-			  	  			<div class="col s3">
+			  	  			<div class="col s5">
 			  	  				<%=session.dataValues.title %>
 			  	  			</div>
-			  	  			<div class="col s3">
+			  	  			<div class="col s5">
 			  	  				<%=session.dataValues.activityType %>
 			  	  			</div>
-			  	  			<div class="col s3">
-			  	  				<%=session.dataValues.completed %>
+			  	  			<div class="col s2">
+			  	  				<%=session.dataValues.time %>
 			  	  			</div>
+
 			  	  		</div>
-			  	  		<div class="collapsible-body">
-			  	  			<span><%=session.dataValues.notes %></span>
+			  	  		<div class="collapsible-body col s12">
+			  	  			<span class="col s12">Link: <a href="<%=session.dataValues.link %>" target="_blank">YOUR LINK</a></span>
+			  	  			<span class="col s12">Notes: <%=session.dataValues.notes %></span>
+
+<!-- ERRR....this is where the chord progression gets rendered -->
+
+		  	  			
+    			
+ 
+ 
+      
+
+
+<!-- End crazy music thing -->
 			  	  		</div>
 			  		</li>
 			  	<%});%>
@@ -89,6 +114,7 @@
 		</div>
 	<div class="col s1"></div>
 </div>
+
 
 <!-- Modal - Add Journal Item -->
 <div id="addJournalItem" class="modal modal-fixed-footer">

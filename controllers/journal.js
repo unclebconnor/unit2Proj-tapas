@@ -50,7 +50,7 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 					order: '"createdAt" ASC',
 				})
 				.then(function(sessionList){ 
-					console.log(sessionLog);
+					console.log(sessionList);
 					res.render('journal/editJournal', {
 						currentUser: req.user,
 						sessionList: sessionList,
@@ -66,8 +66,7 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 });
 
 
-//create journal entry and return to journal list
-//eventually have an if to redirect or reload edit page
+//create journal entry go to edit page
 router.post('/createJournal', isLoggedIn, function(req, res) {
   	var newEntry = req.body;
   	var date = newEntry.journalEntryDate;

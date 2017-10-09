@@ -94,7 +94,6 @@ router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
   			where: {id: newProgressionSegment.harmElement}
   		})
   		.then(function(harmElem){
-  			console.log("######HARM#####",harmElem,"######MEL#####",melElem)
   			db.chordProgSegment.create({
 				chordProgressionId: newProgressionSegment.progressionId,
 				melodicElementId: newProgressionSegment.melElement,
@@ -115,7 +114,6 @@ router.post('/addProgressionSegment', isLoggedIn, function(req, res) {
 
 //
 router.put('/editProgression', isLoggedIn, function(req, res) {
-  console.log("########req.body######",req.body);
   db.chordProgression.update({
     userId: req.body.userId,
     name: req.body.progressionName,
