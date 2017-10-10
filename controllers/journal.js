@@ -58,7 +58,7 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 					}]
 				})
 				.then(function(sessionList){ 
-					
+					//needs to be JSON on the other side
 					sessionList = JSON.parse(JSON.stringify(sessionList));
 					res.render('journal/editJournal', {
 						
@@ -96,20 +96,6 @@ router.post('/createJournal', isLoggedIn, function(req, res) {
 });
 
 
-//update edit journal
-router.put('/editJournal', isLoggedIn, function(req, res) {
-	db.sessionLog.update({
-		title: req.body.journalEntryTitle,
-		date: req.body.journalEntryDate,
-		notes: req.body.journalEntryNotes,
-		status: req.body.journalEntryStatus
-	},{
-		where: {id: req.body.sessionLogId}
-	}).then(function(){
-		res.end();
-	})	
-});
-
 
 //post to create new journal item
 router.post('/addJournalItem', isLoggedIn, function(req, res) {
@@ -128,6 +114,20 @@ router.post('/addJournalItem', isLoggedIn, function(req, res) {
 	.then(function(newSession){
 		res.redirect('/journal/editJournal?id='+newJournalItem.sessionLogId);
 	});
+});
+
+//update edit journal
+router.put('/editJournal', isLoggedIn, function(req, res) {
+	db.sessionLog.update({
+		title: req.body.journalEntryTitle,
+		date: req.body.journalEntryDate,
+		notes: req.body.journalEntryNotes,
+		status: req.body.journalEntryStatus
+	},{
+		where: {id: req.body.sessionLogId}
+	}).then(function(){
+		res.end();
+	})	
 });
 
 

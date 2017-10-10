@@ -18,7 +18,7 @@
 		<form class="col s12" action="/progression/editProgression" method="POST">
     	<header class="row valign-wrapper">
     		<h5 class="col s10">Edit Chord Progression</h5>
-    		<!-- <a class="col s2 waves-effect waves-light btn" href="/progression">Save</a> -->
+
         <button id="editProgSubmit"  type="submit" class="waves-effect waves-light btn">Save</button>
         <input id="progressionId" name="progressionId" type="hidden" value="<%=progressionId%>">
     	</header>
@@ -72,7 +72,7 @@
                 <div>Sequence: <%=segment.sequence%></div>
                 <div>Chord: <%=segment.harmName%></div>
                 <div>Scale: <%=segment.melName%></div>
-                <a href="#">Delete</a>
+                <a href="/progression/deleteSegment?id=<%=segment.id%>&progId=<%=progressionId%>" id="progDelete">Delete</a>
               </li>  
                 <%});%>
                 <%}%>
@@ -196,8 +196,17 @@
   });
 </script>
 
-
-
+<script>
+  $('#deleteSegment').on('click', function(e) {
+    e.preventDefault();
+    var deleteUrl = $(this).attr('href');
+    $.ajax({
+      method: 'DELETE',
+      url: deleteUrl,
+    })
+    .done();
+  });
+</script>
 
 
 

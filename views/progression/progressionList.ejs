@@ -35,7 +35,8 @@
 		  		  		<div class="row col s12">
 		  		  			<div class="col s8">Name: <%=progressionList[i].dataValues.name%> </div>
 		  		  			<div class="col s2 right">
-		  		  				<a href="/progression/editProgression?id=<%=progressionList[i].dataValues.id%>">Edit</a>
+		  		  				<a href="/progression/editProgression?id=<%=progressionList[i].dataValues.id%>" class="col s6">Edit</a>
+		  		  				<a href="/progression/deleteProgression?id=<%=progressionList[i].dataValues.id%>" class="deleteProgLink col s6">Delete</a>
 		  		  				
 		  		  			</div>
 		  		  		</div>
@@ -46,9 +47,35 @@
 		  		  	</div>
 		  		</li>
 		  	<%}%>
-
-
 		</ul>
 	</div>
 	<div class="col s1"></div>
 </div>
+
+
+<script>
+  $('.deleteProgLink').on('click', function(e) {
+    e.preventDefault();
+    var deleteUrl = $(this).attr('href');
+    $.ajax({
+      method: 'DELETE',
+      url: deleteUrl,
+    })
+    .done(function(data) {
+      window.location.assign('/progression');;
+    });
+  });
+</script>
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- space -->

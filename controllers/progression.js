@@ -128,4 +128,31 @@ router.put('/editProgression', isLoggedIn, function(req, res) {
   })  
 });
 
+router.get('/deleteSegment', isLoggedIn, function(req, res) {
+  db.chordProgSegment.destroy({
+    where: {id: req.query.id}
+  }).then(function(){
+    res.redirect('/progression/editProgression?id='+req.query.progId);
+  })  
+});
+
+//deletes selected progression.  Still doesn't cascade down to related records :-/
+router.delete('/deleteProgression', isLoggedIn, function(req, res) {
+  db.chordProgression.destroy({
+      where: {id: req.query.id}
+  })
+  .then(function(){
+    db.chordProgression.findAll({
+      where: {userId: req.user.dataValues.id},
+      order: '"createdAt" DESC'
+    })
+    .then(function(progressionList){
+      res.render('progression/progressionList',{
+        currentUser:req.user,
+        progressionList: progressionList
+      });
+    });
+  });  
+});
+
 module.exports = router;

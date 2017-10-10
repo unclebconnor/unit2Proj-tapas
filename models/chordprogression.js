@@ -15,7 +15,7 @@ module.exports = (sequelize, DataTypes) => {
     classMethods: {
       associate: function(models) {
         models.chordProgression.belongsTo(models.user);
-        models.chordProgression.hasMany(models.chordProgSegment);
+        models.chordProgression.hasMany(models.chordProgSegment, {onDelete: 'CASCADE'});
         models.chordProgression.hasMany(models.sessionItem);
       }
     }
