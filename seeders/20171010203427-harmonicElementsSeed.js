@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('harmonicElement', [
+    return queryInterface.bulkInsert('harmonicElements', [
   {
     name: 'C',
     description: '',

@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('melodicElement', [
+    return queryInterface.bulkInsert('melodicElements', [
   {
     name: 'C arp',
     description: '',

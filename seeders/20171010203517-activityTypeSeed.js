@@ -12,7 +12,7 @@ module.exports = {
         isBetaMember: false
       }], {});
     */
-    return queryInterface.bulkInsert('activityType', [
+    return queryInterface.bulkInsert('activityTypes', [
   {
     id: 1,
     activityName: 'Warm up'
