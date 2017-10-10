@@ -26,17 +26,23 @@
 	<div class="col s10">
 		<ul class="collapsible" data-collapsible="expandable">
 		  	<li>
-		  	  	<div class="collapsible-header">Most Recent Entry</div>
-		  	  	<div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+		  		<div class="collapsible-header">
+		  			<div class="row col s12 buHeader">
+		  		  		<div class="col s2">Date</div>
+		  		  		<div class="col s8">Title</div>
+		  		  		<div class="col s2"></div>
+		  		 	</div>
+		  		</div>
+		  	  	
 		  	</li>
 
 		  	<% for(var i=0; i<sessionList.length; i++){ %>
 		  		<li>
 		  		  	<div class="collapsible-header">
 		  		  		<div class="row col s12">
-		  		  			<div class="col s3">Date: <%=sessionList[i].dataValues.date%> </div>
-		  		  			<div class="col s6">Title: <%=sessionList[i].dataValues.title%> </div>
-		  		  			<div class="col s3 right">
+		  		  			<div class="col s2"><%=sessionList[i].dataValues.date.getMonth()+1;%>/<%=sessionList[i].dataValues.date.getDate();%>/<%=sessionList[i].dataValues.date.getFullYear();%></div>
+		  		  			<div class="col s8"><%=sessionList[i].dataValues.title%> </div>
+		  		  			<div class="col s2 right">
 		  		  				<a href="/journal/editjournal?id=<%=sessionList[i].dataValues.id%>">Edit</a>
 		  		  				
 		  		  			</div>

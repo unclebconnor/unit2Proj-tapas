@@ -62,18 +62,13 @@
 			<ul class="collapsible popout" data-collapsible="expandable">
 			  	<li>
 			  		<!-- This is the header -->
-			  	  	<div class="collapsible-header col s12">
-			  	  			<div class="col s5">
-			  	  				<h5>Title</h5>
-			  	  			</div>
-			  	  			<div class="col s4">
-			  	  				<h5>Activity</h5>
-			  	  			</div>
-			  	  			<div class="col s3">
-			  	  				<h5>Time (min)</h5>
-			  	  			</div>
-
-			  	  		</div>
+			  	  	<div class="collapsible-header">
+			  	  		<div class="row col s12 buHeader">
+			  	  			<div class="col s5">Title</div>
+			  	  			<div class="col s4">Activity</div>
+			  	  			<div class="col s3">Time</div>
+						</div>
+			  	  	</div>
 			  	  	<div class="collapsible-body">
 			  	  		<span>I'm just a header.  Back off.</span>
 			  	  	</div>
@@ -81,21 +76,17 @@
 			  	<!-- Generates list of session items for this session -->
 			  	<%sessionList.forEach(function(session){%>
 			  		<li>
-			  	  		<div class="collapsible-header col s12">
-			  	  			<div class="col s5">
-			  	  				<%=session.title %>
-			  	  			</div>
-			  	  			<div class="col s5">
-			  	  				<%=session.activityType %>
-			  	  			</div>
-			  	  			<div class="col s2">
-			  	  				<%=session.time %>
+			  	  		<div class="collapsible-header">
+			  	  			<div class="col s12">
+			  	  				<div class="col s5"><%=session.title %></div>
+			  	  				<div class="col s4"><%=session.activityType %></div>
+			  	  				<div class="col s3"><%=session.time %></div>
 			  	  			</div>
 
 			  	  		</div>
-			  	  		<div class="collapsible-body col s12">
-			  	  			<span class="col s12">Link: <a href="<%=session.link %>" target="_blank">YOUR LINK</a></span>
-			  	  			<span class="col s12">Notes: <%=session.notes %></span>
+			  	  		<div class="collapsible-body">
+			  	  			<p>Link: <a href="<%=session.link %>" target="_blank"><%=session.link %></a></p>
+			  	  			<p>Notes: <%=session.notes %></p>
 
 <!-- ERRR....this is where the chord progression gets rendered...suspending nesting-->
 <%if(session.chordProgression!==null){%>

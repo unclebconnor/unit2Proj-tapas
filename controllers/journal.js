@@ -21,6 +21,11 @@ router.get('/', isLoggedIn, function(req, res) {
 //get create journal
 router.get('/createJournal', isLoggedIn, function(req, res) {
   var today = new Date();
+  // var date = today.getDate();
+  // var month = today.getMonth() + 1;
+  // var year = today.getFullYear();
+
+  // today = month + "/" + date +"/" + year;
   res.render('journal/createJournal', {
   	currentUser: req.user,
   	today: today
