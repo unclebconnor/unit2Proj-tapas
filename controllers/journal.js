@@ -114,7 +114,7 @@ router.post('/addJournalItem', isLoggedIn, function(req, res) {
 		notes: newJournalItem.jiNotes,
 		time: newJournalItem.time,
 		completed: "false",
-		// chordProgId:
+		chordProgressionId: newJournalItem.chordProgId
 	})
 	.then(function(newSession){
 		res.redirect('/journal/editJournal?id='+newJournalItem.sessionLogId);

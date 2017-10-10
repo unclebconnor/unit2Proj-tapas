@@ -59,7 +59,7 @@
 <div class="row">
 	<div class="col s1"></div>
 		<div class="col s10">
-			<ul class="collapsible popout" data-collapsible="expandable">
+			<ul class="collapsible popout" data-collapsible="accordion">
 			  	<li>
 			  		<!-- This is the header -->
 			  	  	<div class="collapsible-header">
@@ -92,7 +92,7 @@
 <%if(session.chordProgression!==null){%>
   	<script src="https://unpkg.com/vexflow/releases/vexflow-min.js"></script>
   	<%session.chordProgression.chordProgSegments.forEach(function(segment){%>
-  		<div id="<%=segment.harmName%><%=segment.sequence%><%=session.id%>" class="col s12">
+  		<div id="<%=segment.harmName%><%=segment.sequence%><%=session.id%>" >
   		</div>
   		<script>
 
