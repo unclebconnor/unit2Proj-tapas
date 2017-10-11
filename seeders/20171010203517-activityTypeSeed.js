@@ -15,43 +15,83 @@ module.exports = {
     return queryInterface.bulkInsert('activityTypes', [
   {
     id: 1,
-    activityName: 'Warm up'
+    activityName: 'Warm up',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 2,
-    activityName: 'Drills/Scales'
+    activityName: 'Drills/Scales',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 3,
-    activityName: 'Drills/Scales in context'
+    activityName: 'Drills/Scales in context',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 4,
-    activityName: 'Learn new piece'
+    activityName: 'Learn new piece',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 5,
-    activityName: 'Focus on challenging section'
+    activityName: 'Focus on challenging section',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 6,
-    activityName: 'Play section at slower tempo'
+    activityName: 'Play section at slower tempo',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 7,
-    activityName: 'Phrasing'
+    activityName: 'Phrasing',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 8,
-    activityName: 'Run through repertoire'
+    activityName: 'Run through repertoire',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 9,
-    activityName: 'Learn new theory and apply it'
+    activityName: 'Learn new theory and apply it',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   },
   {
     id: 10,
-    activityName: 'Break'
+    activityName: 'Break',
+    detail: '',
+    userId: '',
+    createdAt: new Date(),
+    updatedAt: new Date()
   }
 ], {});
   },
