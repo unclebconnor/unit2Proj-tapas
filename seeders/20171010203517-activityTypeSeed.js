@@ -17,7 +17,6 @@ module.exports = {
     id: 1,
     activityName: 'Warm up',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -25,7 +24,6 @@ module.exports = {
     id: 2,
     activityName: 'Drills/Scales',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -33,7 +31,6 @@ module.exports = {
     id: 3,
     activityName: 'Drills/Scales in context',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -41,7 +38,6 @@ module.exports = {
     id: 4,
     activityName: 'Learn new piece',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -49,7 +45,6 @@ module.exports = {
     id: 5,
     activityName: 'Focus on challenging section',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -57,7 +52,6 @@ module.exports = {
     id: 6,
     activityName: 'Play section at slower tempo',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -65,7 +59,6 @@ module.exports = {
     id: 7,
     activityName: 'Phrasing',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -73,7 +66,6 @@ module.exports = {
     id: 8,
     activityName: 'Run through repertoire',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -81,7 +73,6 @@ module.exports = {
     id: 9,
     activityName: 'Learn new theory and apply it',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   },
@@ -89,7 +80,6 @@ module.exports = {
     id: 10,
     activityName: 'Break',
     detail: '',
-    userId: '',
     createdAt: new Date(),
     updatedAt: new Date()
   }
