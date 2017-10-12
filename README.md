@@ -23,9 +23,13 @@ This is a Node/Express app that uses Sequelize and PSQL.  Refer to Config.JSON f
 
 This app uses the [VexFlow API]:  (http://www.vexflow.com/) for rendering chords and scales.  Refer to their site for documentation.
 
-## Code Example
+## Planning
 
-Refer to this [Lucid Chart](https://www.lucidchart.com/invitations/accept/f7fecefd-bb2d-491e-a658-b02fe43c191b) to view the database structure.
+**Wireframes v 1.0**: Ugly sketches in my notebook 
+**Wireframes v 2.0**: Ugly sketches on post-it notes, across 2 pages in my notebook
+**Deployed product**: Barely recognizable from wireframes
+
+**Database**:  Refer to this [Lucid Chart](https://www.lucidchart.com/invitations/accept/f7fecefd-bb2d-491e-a658-b02fe43c191b) to view the database structure.
 
 The routes are as follows:
 
