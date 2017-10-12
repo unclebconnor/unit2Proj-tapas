@@ -26,7 +26,9 @@ This app uses the [VexFlow API]:  (http://www.vexflow.com/) for rendering chords
 ## Planning
 
 **Wireframes v 1.0**: Ugly sketches in my notebook 
+
 **Wireframes v 2.0**: Ugly sketches on post-it notes, across 2 pages in my notebook
+
 **Deployed product**: Barely recognizable from wireframes
 
 **Database**:  Refer to this [Lucid Chart](https://www.lucidchart.com/invitations/accept/f7fecefd-bb2d-491e-a658-b02fe43c191b) to view the database structure.
@@ -58,7 +60,7 @@ DELETE | /progression/deleteProgression | destroy | delete progression -> prog l
 
 
 
-## Contributors
+## Contributions & User Research
 
 I had some excellent conversations with the following musicians about what they do:
 * Maggie Zager (Cello)
@@ -71,6 +73,7 @@ I had some excellent conversations with the following musicians about what they 
     >at a time for as long as it takes and then take a break, eat some chocolate, then work on another spot. I love working on a hard part 
     >with a metronome and speeding it up one click each time. That's my idea of a good time. Also I count listening to music and following 
     >along with the score as practicing.* 
+    
 * Joe Hanley (Piano)
     >*What would a good teacher do if they could sit next to you every time you practice? Answer that question, and then make the app do 
     >that. To me, that's three things: Curriculum, Effort Tracking, and Feedback.  Perhaps a list of common subjects, with helpful infoand 
@@ -78,6 +81,7 @@ I had some excellent conversations with the following musicians about what they 
     >well. Down the road, this could get even smarter. You could tell it in plain English what you want to be able to do, and it could 
     >recommend a list of subjects you should be practicing to get there. "I want to shred like a beast!" "Okay, stop eating and drinking 
     >and practice this ridiculous scale at 5000 bpm 24 hours a day"*
+    
 * Florie Namir (Piano/Voice)
     >*I never kept a practice journal, and in fact I the word ''practice'' always put me off. Rather I would think what do I WANT to 
     >improve. When I was growing up I specifically remember challanges of playing and singing at the same time and keeping different 
@@ -85,15 +89,18 @@ I had some excellent conversations with the following musicians about what they 
     >really but you get the point. Reaching the comfort of playing as if it was second nature and less technique. As for memorizing lyrics 
     >I do have some routin which is writing the song down and empahsizing an openings word of a verse or line in a verse and concept of 
     >that verse to remind me the rest.*
+    
 * Justin Nash-Fisher (Guitar)
     > *Its funny because im always flattered when people assume i actually practice... haha... I honestly think its a subconscious thing. 
     > My "practice" consists solely of learning new tunes constantly, and when im not going in that direction, im straight up musically 
     > masturbating. Pure thought flow. I rarely have time to practice things just cause i want to.*
+    
 * Lex Marburger (Drums)
     > *As a drummer, I had the WORST time practicing rudiments and isolations, et al when I got to Berklee, because I started by just 
     > playing music with people, and gradually playing more difficult stuff; when I had to figure out a pattern it was because the song 
     > demanded it. Tapping out patterns didn't have the endorphin rush of playing a song. So to answer the question, an app that puts the 
     > user into an environment that makes it feel like there's an immediate use and benefit might work.*
+    
 * Sarah Brindell (Piano/Vocal/Songwriting Professor)
     >My notes from a phone conversation:
     >* *Work w/metronome or a drum track*
