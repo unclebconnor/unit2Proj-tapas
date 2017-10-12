@@ -5,19 +5,18 @@ Tapas is a tool to guide a disciplined music practice.  A user can build custom 
 Future developments will include:
 * User-defined activity types
 * Custom profile (sorry...now it's just my picture :)
-* User-definted journal templates
-* Long-term goal setting
-* User practice data
+* Ability to duplicate journals (templating)
+* Long-term goal setting & analytics
 
 ## Motivation
 
 I created this app to support my own practice habits.  After getting feedback from and interviewing several musicians to understand their routines and inform the design, I realized that many of us don't have much discipline or structure for our practice time.  We approach practice in ways that playing more fun and practical, but that also limit new learning.  
 
-What I learned from my research is that the most effective regimens are regular, have some structure but maintain some flexibility, and involve both problem solving and reflection.  This tool is more or less a blank slate for a musician to build structure to their practice with those principles in mind.
+What I learned from my research is that the most effective regimens are regular, have some structure but maintain some flexibility, and involve both problem solving and reflection.  Also musicians are bonkers.  This tool is more or less a blank slate for a musician to build structure into to their practice with those principles and their own needs and quirks in mind.
 
 ## Installation
 
-This is a Node/Express app that uses Sequelize and PSQL.  Refer to Config.JSON for the correct versions of the node modules.  Seeders must be run after migrations to populate 3 database tables with values for rendering musical notes and choosing activity types.
+This is a Node/Express app that uses Sequelize and PSQL.  Refer to package.JSON for the correct versions of the node modules.  Seeders must be run after migrations to populate 3 database tables with values for rendering musical notes and choosing activity types.
 
 ## API Reference
 
@@ -32,7 +31,9 @@ This app uses the [VexFlow API]:  (http://www.vexflow.com/) for rendering chords
 **Deployed product**: Barely recognizable from wireframes
 
 
+
 **Database**:  Refer to this [Lucid Chart](https://www.lucidchart.com/invitations/accept/f7fecefd-bb2d-491e-a658-b02fe43c191b) to view the database structure.
+
 
 
 **Routes**:  The routes are as follows:
