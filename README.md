@@ -31,9 +31,11 @@ This app uses the [VexFlow API]:  (http://www.vexflow.com/) for rendering chords
 
 **Deployed product**: Barely recognizable from wireframes
 
+
 **Database**:  Refer to this [Lucid Chart](https://www.lucidchart.com/invitations/accept/f7fecefd-bb2d-491e-a658-b02fe43c191b) to view the database structure.
 
-The routes are as follows:
+
+**Routes**:  The routes are as follows:
 
 Verb | Path | Action | Used For
 -----|------|--------|---------
