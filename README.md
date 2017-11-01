@@ -66,7 +66,7 @@ DELETE | /progression/deleteProgression | destroy | delete progression -> prog l
 ## Contributions & User Research
 
 I had some excellent conversations with the following musicians about what they do:
-* Maggie Zager (Cello)
+* Maggie (Cello)
     >*In the last year or so I've switched to a new plan of practicing for shorter stints more frequently. I used to devote whatever free 
     >nights I had to practicing and then get overwhelmed with the idea of practicing for hours and then just procrastinate... now I set a 
     >timer for 15 minutes just about every day and I have to play at least that much. Usually I get into something I'm working on and just 
@@ -77,7 +77,7 @@ I had some excellent conversations with the following musicians about what they 
     >with a metronome and speeding it up one click each time. That's my idea of a good time. Also I count listening to music and following 
     >along with the score as practicing.* 
     
-* Joe Hanley (Piano)
+* Joe (Piano)
     >*What would a good teacher do if they could sit next to you every time you practice? Answer that question, and then make the app do 
     >that. To me, that's three things: Curriculum, Effort Tracking, and Feedback.  Perhaps a list of common subjects, with helpful infoand 
     >tips on each one. You pick which ones to practice and they're added to your subject list. And of course, you can create your own as 
@@ -85,7 +85,7 @@ I had some excellent conversations with the following musicians about what they 
     >recommend a list of subjects you should be practicing to get there. "I want to shred like a beast!" "Okay, stop eating and drinking 
     >and practice this ridiculous scale at 5000 bpm 24 hours a day"*
     
-* Florie Namir (Piano/Voice)
+* Florie (Piano/Voice)
     >*I never kept a practice journal, and in fact I the word ''practice'' always put me off. Rather I would think what do I WANT to 
     >improve. When I was growing up I specifically remember challanges of playing and singing at the same time and keeping different 
     >rhythms in these parts. Now when I practice I  try to get to the place where the song could be played when I sleep walk... haha not 
@@ -93,18 +93,18 @@ I had some excellent conversations with the following musicians about what they 
     >I do have some routin which is writing the song down and empahsizing an openings word of a verse or line in a verse and concept of 
     >that verse to remind me the rest.*
     
-* Justin Nash-Fisher (Guitar)
+* Justin (Guitar)
     > *Its funny because im always flattered when people assume i actually practice... haha... I honestly think its a subconscious thing. 
     > My "practice" consists solely of learning new tunes constantly, and when im not going in that direction, im straight up musically 
     > masturbating. Pure thought flow. I rarely have time to practice things just cause i want to.*
     
-* Lex Marburger (Drums)
+* Lex (Drums)
     > *As a drummer, I had the WORST time practicing rudiments and isolations, et al when I got to Berklee, because I started by just 
     > playing music with people, and gradually playing more difficult stuff; when I had to figure out a pattern it was because the song 
     > demanded it. Tapping out patterns didn't have the endorphin rush of playing a song. So to answer the question, an app that puts the 
     > user into an environment that makes it feel like there's an immediate use and benefit might work.*
     
-* Sarah Brindell (Piano/Vocal/Songwriting Professor)
+* Sarah (Piano/Vocal/Songwriting Professor)
     >My notes from a phone conversation:
     >* *Work w/metronome or a drum track*
     >* *Start at the end of a piece and break it into chunks* 
