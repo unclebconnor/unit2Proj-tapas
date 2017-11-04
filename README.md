@@ -1,3 +1,6 @@
+# Live Demo
+https://tapaspracticejournal.herokuapp.com/
+
 ## Synopsis
 
 Tapas is a tool to guide a disciplined music practice.  A user can build custom chord progressions, aligned with an appropriate scale or arpeggio and include them in their customized practice journal.  The current version supports simple chord progressions (each chord/scale pair limited to one measure) and the basic functionality to simple journal entries that contain multiple activities.  
