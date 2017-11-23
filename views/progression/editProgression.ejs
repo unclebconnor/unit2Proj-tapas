@@ -85,29 +85,26 @@
 
 
 <!-- Modal - Add Journal Item -->
-<div id="addProgressionSegment" class="modal modal-fixed-footer">
+<div id="addProgressionSegment" class="modal modal-fixed-footer addSegmentModal">
   	<div class="row"></div>
 		<div class="row">
 		    <form class="col s12" action="/progression/addProgressionSegment" method="POST">
 		    	<input id="userId" name="userId" type="hidden" value="<%=currentUser.dataValues.id%>">
           <input id="progressionId" name="progressionId" type="hidden" value="<%=progressionId%>">
-          <header class="row">
+          <header class="row center">
 		    		<h5>Chord Progression Segment</h5>
-		    		<button class="modal-action modal-close btn-flat right" type="submit">Add Segment</button>
-
 		    	</header>
 		      	<div class="row">
-		      	  	<div class="col s3">
+		      	  	<div class="col s8 offset-s2">
 		   		 		<select name="harmElement">
 		   		 			<option value="" disabled selected>Chord</option>
    		 				  	<%harmElems.forEach(function(harmElem){%>
-                    <option value="<%=harmElem.dataValues.id %>">
+                    <option value="<%=harmElem.dataValues.id %>" >
                       <%=harmElem.dataValues.name %></option>
                   <%});%>
    		 				</select>
-    					<label>Harmony Element</label>
 		      	  	</div>
-		      	  	<div class="col s3">
+		      	  	<div class="col s8 offset-s2">
 		   		 		<select name="melElement">
 		   		 			<option value="" disabled selected>Scale/Arpeggio</option>
    		 				  	<%melElems.forEach(function(melElem){%>
@@ -115,9 +112,8 @@
                       <%=melElem.dataValues.name %></option>
                   <%});%>
    		 				</select>
-    					<label>Melody Element</label>
 		      	  	</div>
-                <div class="col s3">
+                <div class="col s8 offset-s2">
               <select name="sequence">
                 <option value="" disabled selected>Sequence</option>
                   <option value="1">1</option>
@@ -129,9 +125,9 @@
                   <option value="7">7</option>
                   <option value="8">8</option>
               </select>
-              <label>Sequence</label>
                 </div>
 		      	</div>
+            <button class="modal-action modal-close btn btn-flat right" type="submit">Add Segment</button>
 		    </form>
 		</div>
 </div>

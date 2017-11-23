@@ -29,17 +29,16 @@
 		  	  	<div class="collapsible-header ">
 		  	  		<div class="row col s12 buHeader">
 		  		  		<div class="col s8">Progression Name</div>
-		  		  		<div class="col s2 right">Update</div>
 		  		  	</div>
 		  	  	</div>
 
 		  	</li>
 		  	<% for(var i=0; i<progressionList.length; i++){ %>
 		  		<li>
-		  		  	<div class="collapsible-header">
-		  		  		<div class="row col s12">
-		  		  			<div class="col s8">Name: <%=progressionList[i].dataValues.name%> </div>
-		  		  			<div class="col s2 right">
+		  		  	<div class="collapsible-header ">
+		  		  		<div class="row col s12 killTheMargin">
+		  		  			<div class="col s8"><%=progressionList[i].dataValues.name%> </div>
+		  		  			<div class="col s3 right">
 		  		  				<a href="/progression/editProgression?id=<%=progressionList[i].dataValues.id%>" class="col s6">Edit</a>
 		  		  				<a href="/progression/deleteProgression?id=<%=progressionList[i].dataValues.id%>" class="deleteProgLink col s6">Delete</a>
 		  		  				

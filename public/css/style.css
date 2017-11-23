@@ -1,3 +1,37 @@
+nav{
+	background-color: black;
+}
+
+h5{
+	display: inline-block;
+}
+
+a {
+	color: #00796b;
+}
+
+
+
+.cabinSketch{
+	font-family: 'Cabin Sketch', cursive;
+	font-size: 3rem;
+}
+
+.btn{
+	background-color: #00796b;
+	color: white;
+}
+
+.btn:hover {
+	background-color: #009688;
+	color: white;
+}
+
+.collapsible-header{
+	vertical-align: middle !important;
+}
+
+
 .breadcrumb:before {
     color: #000000;
 }
@@ -6,19 +40,24 @@
    color: #000000;
 }
 
-h5{
-	display: inline-block;
-}
 
 .modal { 
 	width: 90% !important ; 
 	height: 90% !important ; 
+	overflow: visible;
+}
+
+.addSegmentModal{
+	width: 30% !important ; 
+	height: 50% !important ;
 }
 
 
 .bcbreadcrumb{
 	margin: 10px 0;
 }
+
+
 
 .buHeader {
 	font-weight: bold;
@@ -42,4 +81,43 @@ h5{
 	margin-top: 0.5em !important;
 	margin-bottom: 0.5em !important;
 }
+
+/*helpers*/
+
+.center{
+	text-align: center;
+}
+
+.killTheMargin{
+	margin-bottom: 0;
+	margin-top: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.lr-margin{
+	margin-left: 1.5rem;
+	margin-right: 1.5rem;
+}
+
+.inline-block{
+	display: inline-block;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*the ending*/
 
