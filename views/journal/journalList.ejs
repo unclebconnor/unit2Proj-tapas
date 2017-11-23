@@ -44,6 +44,7 @@
 		  		  			<div class="col s8"><%=sessionList[i].dataValues.title%> </div>
 		  		  			<div class="col s2 right">
 		  		  				<a href="/journal/editjournal?id=<%=sessionList[i].dataValues.id%>">Edit</a>
+		  		  				<a href="/journal/deleteJournal?id=<%=sessionList[i].dataValues.id%>" class="deleteJournalLink" >Delete</a>
 		  		  				
 		  		  			</div>
 		  		  		</div>
@@ -58,6 +59,20 @@
 	</div>
 	<div class="col s1"></div>
 </div>
+
+<script>
+  $('.deleteJournalLink').on('click', function(e) {
+    e.preventDefault();
+    var deleteUrl = $(this).attr('href');
+    $.ajax({
+      method: 'DELETE',
+      url: deleteUrl,
+    })
+    .done(function(data) {
+      window.location.assign('/journal');;
+    });
+  });
+</script>
 
 
 

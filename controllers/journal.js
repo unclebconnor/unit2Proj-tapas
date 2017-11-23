@@ -21,9 +21,10 @@ router.get('/', isLoggedIn, function(req, res) {
 //get create journal
 router.get('/createJournal', isLoggedIn, function(req, res) {
   var today = new Date();
-  // var date = today.getDate();
-  // var month = today.getMonth() + 1;
-  // var year = today.getFullYear();
+  var date = today.getDate();
+  var month = today.getMonth() + 1;
+  var year = today.getFullYear();
+  today = month + "/" + date + "/" + year;
 
   // today = month + "/" + date +"/" + year;
   res.render('journal/createJournal', {
@@ -65,11 +66,18 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 				.then(function(sessionList){ 
 					//needs to be JSON on the other side
 					sessionList = JSON.parse(JSON.stringify(sessionList));
+					
+					var sessionDate = sessionLog.dataValues.date
+  					var date = sessionDate.getDate();
+  					var month = sessionDate.getMonth() + 1;
+  					var year = sessionDate.getFullYear();
+  					sessionDate = month + "/" + date + "/" + year;
 					res.render('journal/editJournal', {
 						
 						currentUser: req.user,
 						sessionList: sessionList, //this sucker is JSON
 						sessionLog: sessionLog,
+						sessionDate: sessionDate,
 						sessionLogId: req.query.id,
 						activities: activities,
 						chordProgs: chordProgs,
@@ -83,15 +91,21 @@ router.get('/editJournal', isLoggedIn, function(req, res) {
 
 //create journal entry go to edit page
 router.post('/createJournal', isLoggedIn, function(req, res) {
+  	var today = new Date();
+  	var date = today.getDate();
+  	var month = today.getMonth() + 1;
+  	var year = today.getFullYear();
+  	today = month + "/" + date + "/" + year;
+
   	var newEntry = req.body;
-  	var date = newEntry.journalEntryDate;
-  	if(!date){
-  		date = new Date();
+  	var entryDate = newEntry.journalEntryDate;
+  	if(!entryDate){
+  		entryDate = today;
   	}
   	db.sessionLog.create({
 		userId: newEntry.userId,
 		title: newEntry.journalEntryTitle,
-		date: date,
+		date: entryDate,
 		notes: newEntry.journalEntryNotes,
 		status: newEntry.journalEntryStatus
 	})
@@ -134,6 +148,28 @@ router.put('/editJournal', isLoggedIn, function(req, res) {
 		res.end();
 	})	
 });
+
+
+//delete journal
+router.delete('/deleteJournal', isLoggedIn, function(req, res) {
+	db.sessionLog.destroy({
+		where: {id: req.query.id}
+	})
+	.then(function(){
+		db.sessionLog.findAll({
+			where: {userId: req.user.dataValues.id},
+			order: '"date" DESC'
+		})
+		.then(function(sessionList){
+		res.render('journal/journalList', {
+			currentUser: req.user,
+			sessionList: sessionList
+		});
+	});
+	})	
+});
+
+
 
 
 module.exports = router;
