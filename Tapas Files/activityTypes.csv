@@ -1,0 +1,11 @@
+id,activityName,detail,userId,createdAt,updatedAt
+1,Warm up,,,new Date(),new Date()
+2,Drills/Scales,,,new Date(),new Date()
+3,Drills/Scales in context,,,new Date(),new Date()
+4,Learn new piece,,,new Date(),new Date()
+5,Focus on challenging section,,,new Date(),new Date()
+6,Play section at slower tempo,,,new Date(),new Date()
+7,Phrasing,,,new Date(),new Date()
+8,Run through repertoire,,,new Date(),new Date()
+9,Learn new theory and apply it,,,new Date(),new Date()
+10,Break,,,new Date(),new Date()

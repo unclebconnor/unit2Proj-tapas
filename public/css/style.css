@@ -29,3 +29,17 @@ h5{
 	padding: 13px;
 }
 
+.lessMargin{
+	margin: 0.5em !important;
+}
+
+.tb-margin-md{
+	margin-top: 1.5em !important;
+	margin-bottom: 1.5em !important;
+}
+
+.tb-margin-sm{
+	margin-top: 0.5em !important;
+	margin-bottom: 0.5em !important;
+}
+
