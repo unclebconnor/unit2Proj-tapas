@@ -69,6 +69,7 @@ DELETE | /progression/deleteProgression | destroy | delete progression -> prog l
 ## Contributions & User Research
 
 I had some excellent conversations with the following musicians about what they do:
+
 * Maggie (Cello)
     >*In the last year or so I've switched to a new plan of practicing for shorter stints more frequently. I used to devote whatever free 
     >nights I had to practicing and then get overwhelmed with the idea of practicing for hours and then just procrastinate... now I set a 
@@ -88,6 +89,7 @@ I had some excellent conversations with the following musicians about what they 
     >recommend a list of subjects you should be practicing to get there. "I want to shred like a beast!" "Okay, stop eating and drinking 
     >and practice this ridiculous scale at 5000 bpm 24 hours a day"*
     
+
 * Florie (Piano/Voice)
     >*I never kept a practice journal, and in fact I the word ''practice'' always put me off. Rather I would think what do I WANT to 
     >improve. When I was growing up I specifically remember challanges of playing and singing at the same time and keeping different 
